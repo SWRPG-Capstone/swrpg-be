@@ -1,24 +1,51 @@
-# README
+# Star Wars RPG 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-this-project">About This Project</a>
+      <ul>
+        <li><a href="#versions">Versions</a></li>
+      </ul>
+      <ul>
+        <li><a href="#important-gems">Important Gems</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+    </li>
+    <li><a href="#endpoints">Endpoints</a></li>
+    <li><a href="#Running-the-tests">Running the Tests</a></li>
+  </ol>
+</details>
 
-Things you may want to cover:
+<!-- ABOUT THE PROJECT -->
+## About This Project
 
-* Ruby version
+This is the backend repository for the Star Wars RPG. It is responsible 
 
-* System dependencies
+#### Versions
 
-* Configuration
+- Ruby 2.7.2
 
-* Database creation
+- Rails 5.2.6
 
-* Database initialization
+#### Important Gems
+Testing
+* TBD
+ 
+API Consumption
+* TBD
 
-* How to run the test suite
+## Getting Started
 
-* Services (job queues, cache servers, search engines, etc.)
+These instructions will give you a copy of the project up and running on
+your local machine for development and testing purposes.
 
-* Deployment instructions
+### Local Setup
 
-* ...
+## Endpoints
+
+## Running the tests
