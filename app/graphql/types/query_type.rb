@@ -4,6 +4,22 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
+    field :users, Types::UsersType, null: false do
+      argument :id, ID!, required: true
+    end
+
+    def users(id:)
+      User.find(id)
+    end
+
+    field :characters, Types::CharacterType, null: false do
+      argument :id, ID!, required: true
+    end
+
+    def characters(id:)
+      Character.find(id)
+    end
+
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
