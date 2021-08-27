@@ -52,6 +52,10 @@ your local machine for development and testing purposes.
 3. Setup the database: `rails db:create`
 4. Run migrations: ` rails db:migrate`
 
-## Endpoints
+## GraphQL Endpoints
+
+Our GraphQL endpoints fall into three categories: queries, mutations, and filter queries.
+
+To make live queries to the GraphQL endpoint and see live schema information, setup the back-end by running `rails s` in the terminal and access GraphiQL at http://localhost:3001/graphiql.
 
 ## Running the tests
