@@ -12,11 +12,11 @@ module Types
       User.find(id)
     end
 
-    field :characters, Types::CharacterType, null: false do
+    field :character, Types::CharacterType, null: false do
       argument :id, ID, required: true
     end
 
-    def characters(id:)
+    def character(id:)
       Character.find(id)
     end
   end
