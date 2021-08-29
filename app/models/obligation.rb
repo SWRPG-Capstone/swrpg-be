@@ -1,0 +1,2 @@
+class Obligation < ApplicationRecord
+end

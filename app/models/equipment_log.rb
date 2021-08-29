@@ -1,0 +1,2 @@
+class EquipmentLog < ApplicationRecord
+end

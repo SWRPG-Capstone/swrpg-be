@@ -1,0 +1,2 @@
+class CriticalInjury < ApplicationRecord
+end
