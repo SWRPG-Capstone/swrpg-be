@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_193711) do
     t.integer "intellect"
     t.integer "cunning"
     t.integer "willpower"
-    t.integer "presence"
+    t.integer "char_presence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_characteristics_on_character_id"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_193711) do
 
   create_table "motivations", force: :cascade do |t|
     t.bigint "character_id"
-    t.string "type"
+    t.string "mo_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_motivations_on_character_id"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_193711) do
 
   create_table "obligations", force: :cascade do |t|
     t.bigint "character_id"
-    t.string "type"
+    t.string "ob_type"
     t.integer "magnitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
