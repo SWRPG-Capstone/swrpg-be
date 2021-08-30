@@ -1,6 +1,6 @@
 class CreateCharacter < ActiveRecord::Migration[5.2]
   def change
-    create_table :character do |t|
+    create_table :characters do |t|
       t.string :name
       t.string :species
       t.string :specialization
@@ -10,7 +10,7 @@ class CreateCharacter < ActiveRecord::Migration[5.2]
       t.string :build
       t.string :hair
       t.string :eyes
-      t.references :users, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
