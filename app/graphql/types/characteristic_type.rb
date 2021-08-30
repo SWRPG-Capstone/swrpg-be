@@ -7,7 +7,7 @@ module Types
     field :intellect, Integer, null: true
     field :cunning, Integer, null: true
     field :willpower, Integer, null: true
-    field :presence, Integer, null: true
+    field :char_presence, Integer, null: true
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
   end
