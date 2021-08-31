@@ -1,22 +1,24 @@
 version: 2.1
+
 orbs:
   ruby: circleci/ruby@0.1.2
   heroku: circleci/heroku@1.2.6 
 
 jobs:
+  # deliberately not doing anything in build so we can have a job called test which is what heroku workflow requires
   build:
     working_directory: ~/swrpg-be
     docker:
       # - image: circleci/ruby:2.6.3-stretch-node
-    - image: cimg/ruby:2.7.2
-      environment:
-      PG_HOST: localhost
-      PG_USER: circleci
-     - image: postgres:13.3
-      environment:
-      POSTGRES_USER: circleci
-      POSTGRES_DB: swrpg-be_test
-      POSTGRES_HOST_AUTH_METHOD: trust
+      - image: cimg/ruby:2.7.2
+        environment:
+          PG_HOST: localhost
+          PG_USER: circleci
+      - image: postgres:13.3
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: swrpg-be_test
+          POSTGRES_HOST_AUTH_METHOD: trust
     # executor: ruby/default
     steps:
       - checkout
@@ -38,11 +40,11 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-            - run:
+      - run:
           name: set up DB
           command: |
             bundle exec rake db:create db:schema:load --trace
             bundle exec rake db:migrate
           environment:
-              DATABASE_URL: "postgres://circleci@localhost:5432/drink-this-backend_test"
+              DATABASE_URL: "postgres://circleci@localhost:5432/swrpg-be_test"
       - run: bundle exec rspec spec
