@@ -7,7 +7,7 @@ class CreateCharacteristics < ActiveRecord::Migration[5.2]
       t.integer :intellect
       t.integer :cunning
       t.integer :willpower
-      t.integer :presence
+      t.integer :char_presence
 
       t.timestamps
     end
