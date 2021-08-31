@@ -40,7 +40,7 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-            - run:
+      - run:
           name: set up DB
           command: |
             bundle exec rake db:create db:schema:load --trace
