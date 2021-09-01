@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'graphql'
 gem 'graphiql-rails'
 gem 'pry'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
