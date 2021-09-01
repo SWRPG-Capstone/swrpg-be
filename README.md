@@ -35,10 +35,16 @@ This is the backend repository for Star Wars RPG. It is responsible for sending 
 
 #### Important Gems
 Testing
-* TBD
+* factory-bot_rails
+* faker
+* pry
+* shoulda-matchers
+* simplecov
  
-API Consumption
-* TBD
+GRAPHQL API 
+* graphql
+* graphiql-rails
+* rack-cors
 
 ## Getting Started
 
@@ -56,6 +62,15 @@ your local machine for development and testing purposes.
 
 Our GraphQL endpoints fall into three categories: queries, mutations, and filter queries.
 
-To make live queries to the GraphQL endpoint and see live schema information, setup the back-end by running `rails s` in the terminal and access GraphiQL at http://localhost:3001/graphiql.
+To make live queries to the GraphQL endpoint and see live schema information, setup the back-end by running `rails s` in the terminal and access GraphiQL at http://localhost:3001/graphiql. Use the screenshots as reference when formatting your queries and compare against the expected response. 
+
+### Queries 
+ 1. getCharacter(id: ID) - finds specific character in database by id. 
+<img width="1118" alt="Screen Shot 2021-09-01 at 11 17 26 AM" src="https://user-images.githubusercontent.com/70981102/131714120-1238e989-4454-4a71-9df2-b899e64342c2.png">
+
+### Mutations 
+1. createCharacter(CreateCharacterInput) - creates new character in database
+<img width="1389" alt="Screen Shot 2021-09-01 at 10 59 55 AM" src="https://user-images.githubusercontent.com/70981102/131714475-c2f81b53-3329-433c-947e-cc6640fa095d.png">
+
 
 ## Running the tests
