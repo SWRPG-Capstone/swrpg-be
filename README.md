@@ -16,7 +16,7 @@
     <li>
       <a href="#getting-started">Getting Started</a>
     </li>
-    <li><a href="#endpoints">Endpoints</a></li>
+    <li><a href="#graphql-endpoints">GraphQL Endpoints</a></li>
     <li><a href="#Running-the-tests">Running the Tests</a></li>
   </ol>
 </details>
