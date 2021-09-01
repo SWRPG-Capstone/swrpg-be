@@ -40,5 +40,20 @@ RSpec.describe 'CreateCharacter', type: :request do
       post '/graphql', params: {query: @query}
       expect(Character.count).to eq(1)
     end
+
+    it 'returns character' do
+      post '/graphql', params: {query: @query}
+      json = JSON.parse(response.body, symbolize_names: true)
+      data = json[:data][:character]
+      
+      expect(data[:name]).to eq("Mace Windu")
+      expect(data[:species]).to eq("human")
+      expect(data[:career]).to eq("jedi")
+      expect(data[:age]).to eq(34)
+      expect(data[:height]).to eq("6ft 5in")
+      expect(data[:build]).to eq("lean")
+      expect(data[:hair]).to eq("bald")
+      expect(data[:eyes]).to eq("black")
+    end
   end
 end
