@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Types::QueryType do
+RSpec.describe Types::CharacterType, type: :request do
   describe 'display character' do
     it 'can return a single character by the id' do
       user = User.create(username: "test")
@@ -9,34 +9,36 @@ RSpec.describe Types::QueryType do
       query = <<~GQL 
                 query {
                   character(id: #{mace.id}){
-                    id
-                    name
-                    species
-                    specialization
-                    career 
-                    age
-                    height
+                    age 
                     build
+                    career 
+                    eyes 
                     hair
-                    eyes
+                    height 
+                    id 
+                    name
+                    specialization
+                    species
                   } 
                 }
               GQL
 
-      result = SwrpgBeSchema.execute(query)
+      post '/graphql', params: { query: query }
+      json = JSON.parse(response.body, symbolize_names: true)
+      character = json[:data][:character]
       
-      expect(result['data']['character']).to have_key('id')
-      expect(result['data']['character']).to have_key('name')
-      expect(result['data']['character']).to have_key('species')
-      expect(result['data']['character']).to have_key('specialization')
-      expect(result['data']['character']).to have_key('career')
-      expect(result['data']['character']).to have_key('age')
-      expect(result['data']['character']).to have_key('height')
-      expect(result['data']['character']).to have_key('build')
-      expect(result['data']['character']).to have_key('hair')
-      expect(result['data']['character']).to have_key('eyes')
-      expect(result['data']['character']['name']).to eq(mace.name)
-      expect(result['data']['character']['name']).to_not eq(vader.name)
+      expect(character).to have_key(:id)
+      expect(character).to have_key(:name)
+      expect(character).to have_key(:species)
+      expect(character).to have_key(:specialization)
+      expect(character).to have_key(:career)
+      expect(character).to have_key(:age)
+      expect(character).to have_key(:height)
+      expect(character).to have_key(:build)
+      expect(character).to have_key(:hair)
+      expect(character).to have_key(:eyes)
+      expect(character[:name]).to eq(mace.name)
+      expect(character[:name]).to_not eq(vader.name)
     end
   end
 end
