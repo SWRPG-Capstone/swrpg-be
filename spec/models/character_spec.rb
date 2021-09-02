@@ -7,7 +7,7 @@ RSpec.describe Character, type: :model do
     it { should have_many(:skills) }
     it { should have_many(:obligations) }
     it { should have_many(:critical_injuries) }
-    it { should have_many(:equipment_log) }
+    it { should have_many(:equipment_logs) }
     it { should have_many(:motivations) }
     it { should have_many(:talents) }
   end
