@@ -69,8 +69,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 <img width="1118" alt="Screen Shot 2021-09-01 at 11 17 26 AM" src="https://user-images.githubusercontent.com/70981102/131714120-1238e989-4454-4a71-9df2-b899e64342c2.png">
 
 2. getUser(id: ID) - finds specific user in database by id.
-![image](https://user-images.githubusercontent.com/74436194/131850626-ef2a83bd-060c-45b4-a01e-64da58610674.png)
-
+![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
 
 ### Mutations 
 1. createCharacter(CreateCharacterInput) - creates new character in database
