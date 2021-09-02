@@ -34,6 +34,7 @@ class CreateSkills < ActiveRecord::Migration[5.2]
       t.integer :outer_rim
       t.integer :underworld
       t.integer :xenology
+      t.integer :medicine
 
       t.timestamps
     end
