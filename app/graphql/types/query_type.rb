@@ -26,6 +26,13 @@ module Types
 
     def skill(characterId:)
       Skill.find_by(character_id: characterId)
+
+    field :characteristic, Types::CharacteristicType, null: false do
+      argument :characterId, Integer, required: true
+    end
+
+    def characteristic(characterId:)
+      char = Characteristic.find_by(character_id: characterId)
     end
   end
 end
