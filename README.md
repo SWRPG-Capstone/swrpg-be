@@ -1,6 +1,10 @@
+<!-- ABOUT THE PROJECT -->
 ![swrpgc banner](https://user-images.githubusercontent.com/17935770/131261369-477cff64-39e5-462a-81bf-3f55944e512e.png)
 
 This application acts as a companion for the tabletop rpg game: **Star Wars: Edge of the Empire**. The companion app allows you to keep track of and store your in-game characters. You may also connect and communicate with your friends and party up so that everyone can witness the dice rolls that will unfold the story in their legendary campaign.
+
+This is the backend repository that is responsible for sending API responses to our [frontend application](https://github.com/SWRPG-Capstone/swrpg-fe).
+
 
 ![feaures](https://user-images.githubusercontent.com/17935770/131262008-e0fb73fa-3967-41bb-852d-6fd1f71b45a7.png)
 
@@ -12,6 +16,8 @@ This application acts as a companion for the tabletop rpg game: **Star Wars: Edg
 
 ![Screenshots of the wireframe](https://user-images.githubusercontent.com/17935770/131262115-72dfe9c0-5bae-4c05-b65c-319b952bda52.png)
 
+
+## About This Project
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -33,11 +39,6 @@ This application acts as a companion for the tabletop rpg game: **Star Wars: Edg
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
-## About This Project
-PLAYERS OF TABLETOP STAR WARS RPG, REJOICE! ---NAME TO BE UPDATED --- is an accompanying app that helps keep track of your character stats and calculates your dice rolls all in one place!
-
-This is the backend repository for Star Wars RPG. It is responsible for sending API responses to our [frontend application](https://github.com/SWRPG-Capstone/swrpg-fe).
 
 #### Versions
 
