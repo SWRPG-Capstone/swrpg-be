@@ -20,16 +20,16 @@ RSpec.describe 'CreateCharacter', type: :request do
                                                 eyes: "black"
                                             } 
                                             ) {
-                                                id
-                                                name
-                                                species
-                                                specialization
-                                                career
-                                                age 
-                                                height
-                                                build
-                                                hair
-                                                eyes
+                                              age 
+                                              build
+                                              career 
+                                              eyes 
+                                              hair
+                                              height 
+                                              id 
+                                              name
+                                              specialization
+                                              species
                                             }
                                           }
               GQL
@@ -37,12 +37,12 @@ RSpec.describe 'CreateCharacter', type: :request do
 
     it 'creates character' do
       expect(Character.count).to eq(0)
-      post '/graphql', params: {query: @query}
+      post '/graphql', params: { query: @query }
       expect(Character.count).to eq(1)
     end
 
     it 'returns character' do
-      post '/graphql', params: {query: @query}
+      post '/graphql', params: { query: @query }
       json = JSON.parse(response.body, symbolize_names: true)
       data = json[:data][:character]
       
