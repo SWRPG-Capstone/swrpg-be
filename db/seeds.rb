@@ -63,7 +63,7 @@ end
       result: Faker::Name.name
     )
 
-    character.equipment_log.create(
+    character.equipment_logs.create(
       credits: Faker::Name.name,
       weapons: Faker::Name.name,
       armor: Faker::Name.name,
