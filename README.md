@@ -43,7 +43,6 @@ This is the backend repository that is responsible for sending API responses to 
 #### Versions
 
 - Ruby 2.7.2
-
 - Rails 5.2.6
 
 #### Important Gems
