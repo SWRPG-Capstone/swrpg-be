@@ -43,6 +43,7 @@ end
       brawl: Faker::Number.within(range: 1..5),
       gunnery: Faker::Number.within(range: 1..5),
       melee: Faker::Number.within(range: 1..5),
+      medicine: Faker::Number.within(range: 1..5),
       ranged_light: Faker::Number.within(range: 1..5),
       ranged_heavy: Faker::Number.within(range: 1..5),
       core_worlds: Faker::Number.within(range: 1..5),

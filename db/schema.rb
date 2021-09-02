@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_193711) do
     t.integer "outer_rim"
     t.integer "underworld"
     t.integer "xenology"
+    t.integer "medicine"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_skills_on_character_id"

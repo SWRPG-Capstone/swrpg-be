@@ -13,6 +13,7 @@ module Types
     field :discipline, Integer, null: true
     field :leadership, Integer, null: true
     field :mechanics, Integer, null: true
+    field :medicine, Integer, null: true
     field :negotiation, Integer, null: true
     field :perception, Integer, null: true
     field :piloting, Integer, null: true

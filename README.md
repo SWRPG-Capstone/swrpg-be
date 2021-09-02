@@ -1,5 +1,23 @@
-# Star Wars RPG 
+<!-- ABOUT THE PROJECT -->
+![swrpgc banner](https://user-images.githubusercontent.com/17935770/131261369-477cff64-39e5-462a-81bf-3f55944e512e.png)
 
+This application acts as a companion for the tabletop rpg game: **Star Wars: Edge of the Empire**. The companion app allows you to keep track of and store your in-game characters. You may also connect and communicate with your friends and party up so that everyone can witness the dice rolls that will unfold the story in their legendary campaign.
+
+This is the backend repository that is responsible for sending API responses to our [frontend application](https://github.com/SWRPG-Capstone/swrpg-fe).
+
+
+![feaures](https://user-images.githubusercontent.com/17935770/131262008-e0fb73fa-3967-41bb-852d-6fd1f71b45a7.png)
+
+ - User may create a new character that contains their information, characteristics, features
+ - Dice rolls can be be configured with actual dice animation
+ - All of your characters can be seen in one place
+
+![preview](https://user-images.githubusercontent.com/17935770/131262055-e0e0afc1-09f9-4730-9f02-8cd4d7a2be09.png)
+
+![Screenshots of the wireframe](https://user-images.githubusercontent.com/17935770/131262115-72dfe9c0-5bae-4c05-b65c-319b952bda52.png)
+
+
+## About This Project
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -21,16 +39,10 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
-## About This Project
-PLAYERS OF TABLETOP STAR WARS RPG, REJOICE! ---NAME TO BE UPDATED --- is an accompanying app that helps keep track of your character stats and calculates your dice rolls all in one place!
-
-This is the backend repository for Star Wars RPG. It is responsible for sending API responses to our [frontend application](https://github.com/SWRPG-Capstone/swrpg-fe).
 
 #### Versions
 
 - Ruby 2.7.2
-
 - Rails 5.2.6
 
 #### Important Gems
@@ -67,6 +79,9 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 ### Queries 
  1. getCharacter(id: ID) - finds specific character in database by id. 
 <img width="1118" alt="Screen Shot 2021-09-01 at 11 17 26 AM" src="https://user-images.githubusercontent.com/70981102/131714120-1238e989-4454-4a71-9df2-b899e64342c2.png">
+
+2. getUser(id: ID) - finds specific user in database by id.
+![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
 
 ### Mutations 
 1. createCharacter(CreateCharacterInput) - creates new character in database
