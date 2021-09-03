@@ -161,6 +161,7 @@ query{
 ```
 
 ### RESPONSE
+
 ```graphql
 {
   "data": {
@@ -205,7 +206,9 @@ query{
 ```
 4. getUserCharacters(id: ID) - finds all of the characters for a user by user id.
 ### Request
+
 ```graphql
+
 {
   user(id: 1) {
     username
@@ -226,6 +229,7 @@ query{
 ```
 ### Response
 ```graphql
+
 {
   "data": {
     "user": {
@@ -305,6 +309,7 @@ query{
 ![image](https://user-images.githubusercontent.com/74436194/131943128-298c2837-0ca1-4859-86e2-de73dc832105.png)
 
 3. createSkill(characterId: ID)
+### REQUEST
 ```graphql  
 
 mutation { 
