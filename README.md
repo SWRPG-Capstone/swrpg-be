@@ -78,7 +78,40 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 
 ### Queries 
  1. getCharacter(id: ID) - finds specific character in database by id. 
-<img width="1118" alt="Screen Shot 2021-09-01 at 11 17 26 AM" src="https://user-images.githubusercontent.com/70981102/131714120-1238e989-4454-4a71-9df2-b899e64342c2.png">
+### REQUEST
+```graphql 
+ query{
+  character(characterId: 1) {
+    age 
+    build
+    career
+    eyes
+    hair
+    height
+    id
+    name
+    specialization
+    species
+  }
+```
+### RESPONSE 
+
+```graphql
+{
+  "data": {
+    "character": {
+      "age": 15,
+      "build": "Ezra Legros",
+      "career": "Shonna Gleichner",
+      "eyes": "Roxann Murray",
+      "hair": "Rudolf Goyette II",
+      "height": "Jaleesa Mann",
+      "id": "1",
+      "name": "Gov. Sook Kuhlman",
+      "specialization": "Ellsworth Powlowski",
+      "species": ""Larhonda Dietrich" 
+    }
+``` 
 
 2. getUser(id: ID) - finds specific user in database by id.
 ![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
