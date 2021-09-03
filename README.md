@@ -128,7 +128,7 @@ query{
 ```
 
 ### RESPONSE
-```
+```graphql
 {
   "data": {
     "skill": {
@@ -273,6 +273,7 @@ query{
 
 3. createSkill(characterId: ID)
 ```graphql  
+
 mutation { 
       skill: createSkill(
        input:{
