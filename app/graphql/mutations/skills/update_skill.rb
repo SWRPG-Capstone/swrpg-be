@@ -2,7 +2,7 @@ module Mutations
   module Skills
     class UpdateSkill < ::Mutations::BaseMutation
       argument :id, Integer, required: true
-      argument :character_id, Integer, required: true may or may not need this
+      argument :character_id, Integer, required: true
       argument :astrogation, Integer, required: true
       argument :athletics, Integer, required: true
       argument :brawl, Integer, required: true
