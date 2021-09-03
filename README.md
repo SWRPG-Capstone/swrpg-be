@@ -83,7 +83,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 2. getUser(id: ID) - finds specific user in database by id.
 ![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
 
-3. getCharacteristics(characterId: ID)
+3. getSkills(characterId: ID)
 ### REQUEST
 
 ```
