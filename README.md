@@ -83,9 +83,381 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 2. getUser(id: ID) - finds specific user in database by id.
 ![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
 
+3. getSkills(characterId: ID)
+### REQUEST
+
+```
+query{
+  skill(characterId: 1) {
+    astrogation
+    athletics
+    brawl
+    charm
+    coercion
+    computers
+    cool
+    coordination
+    coreWorlds
+    deception
+    discipline
+    education
+    gunnery
+    id
+    leadership
+    lore
+    mechanics
+    medicine
+    melee
+    negotiation
+    outerRim
+    perception
+    piloting
+    pilotingSpace
+    rangedHeavy
+    rangedLight
+    resilience
+    skulduggery
+    stealth
+    streetWise
+    survival
+    underworld
+    vigilance
+    xenology
+  }
+}
+```
+
+### RESPONSE
+```
+{
+  "data": {
+    "skill": {
+      "astrogation": 3,
+      "athletics": 3,
+      "brawl": 4,
+      "charm": 4,
+      "coercion": 3,
+      "computers": 4,
+      "cool": 2,
+      "coordination": 5,
+      "coreWorlds": 2,
+      "deception": 5,
+      "discipline": 2,
+      "education": 2,
+      "gunnery": 3,
+      "id": "1",
+      "leadership": 4,
+      "lore": 4,
+      "mechanics": 5,
+      "medicine": 2,
+      "melee": 5,
+      "negotiation": 2,
+      "outerRim": 1,
+      "perception": 3,
+      "piloting": 1,
+      "pilotingSpace": 5,
+      "rangedHeavy": 2,
+      "rangedLight": 5,
+      "resilience": 5,
+      "skulduggery": 3,
+      "stealth": 4,
+      "streetWise": 2,
+      "survival": 1,
+      "underworld": 1,
+      "vigilance": 5,
+      "xenology": 3
+    }
+  }
+}
+```
+
+4. getCharacteristics(characterId: ID)
+### REQUEST
+```
+query{
+  characteristic(characterId: 1) {
+    agility
+    brawn
+    charPresence
+    cunning
+    id
+    intellect
+    willpower
+  }
+}
+```
+
+### RESPONSE
+```
+{
+  "data": {
+    "characteristic": {
+      "agility": 6,
+      "brawn": 3,
+      "charPresence": 4,
+      "cunning": 2,
+      "id": "1",
+      "intellect": 6,
+      "willpower": 3
+    }
+  }
+}
+```
+
 ### Mutations 
-1. createCharacter(CreateCharacterInput) - creates new character in database
+1. createCharacter(CreateCharacterInput) - creates new character in database.
 <img width="1389" alt="Screen Shot 2021-09-01 at 10 59 55 AM" src="https://user-images.githubusercontent.com/70981102/131714475-c2f81b53-3329-433c-947e-cc6640fa095d.png">
 
+2. createCharacteristic(CreateCharacteristicInput) - creates new characteristic in database.
+![image](https://user-images.githubusercontent.com/74436194/131943128-298c2837-0ca1-4859-86e2-de73dc832105.png)
+
+3. createSkill(characterId: ID)
+```  mutation { 
+      skill: createSkill(
+       input:{
+        characterId: 1
+        astrogation: 1
+        athletics: 1
+        brawl: 1
+        charm: 1
+        coercion: 1
+        computers: 1
+        cool: 1
+        coordination: 1
+        coreWorlds: 1
+        deception: 1
+        discipline: 1
+        education: 1
+        gunnery: 1
+        leadership: 1
+        lore: 1
+        mechanics: 1
+        medicine: 1
+        melee: 4
+        negotiation: 1
+        outerRim: 1
+        perception: 1
+        piloting: 1
+        pilotingSpace: 1
+        rangedHeavy: 2
+        rangedLight: 3
+        resilience: 4
+        skulduggery: 5
+        stealth: 2
+        streetWise: 2
+        survival: 1
+        underworld: 1
+        vigilance: 1
+        xenology: 1
+       }) {							  
+        astrogation
+        athletics
+        brawl
+        charm
+        coercion
+        computers
+        cool
+        coordination
+        coreWorlds
+        deception
+        discipline
+        education
+        gunnery
+        id
+        leadership
+        lore
+        mechanics
+        medicine
+        melee
+        negotiation
+        outerRim
+        perception
+        piloting
+        pilotingSpace
+        rangedHeavy
+        rangedLight
+        resilience
+        skulduggery
+        stealth
+        streetWise
+        survival
+        underworld
+        vigilance
+        xenology
+   }
+}
+
+ ```
+ 
+ ### RESPONSE
+```
+{
+  "data": {
+    "skill": {
+      "astrogation": 1,
+      "athletics": 1,
+      "brawl": 1,
+      "charm": 1,
+      "coercion": 1,
+      "computers": 1,
+      "cool": 1,
+      "coordination": 1,
+      "coreWorlds": 1,
+      "deception": 1,
+      "discipline": 1,
+      "education": 1,
+      "gunnery": 1,
+      "id": "9",
+      "leadership": 1,
+      "lore": 1,
+      "mechanics": 1,
+      "medicine": 1,
+      "melee": 4,
+      "negotiation": 1,
+      "outerRim": 1,
+      "perception": 1,
+      "piloting": 1,
+      "pilotingSpace": 1,
+      "rangedHeavy": 2,
+      "rangedLight": 3,
+      "resilience": 4,
+      "skulduggery": 5,
+      "stealth": 2,
+      "streetWise": 2,
+      "survival": 1,
+      "underworld": 1,
+      "vigilance": 1,
+      "xenology": 1
+    }
+  }
+}
+```
+
+3. updateSkill(UpdateSkillInput) - updates any/all of the skills for a specified character.
+> Pasting code instead of screenshot due to the code not all fitting in one shot
+
+#### REQUEST
+```ruby
+  mutation {
+    updateSkill(input: {
+      astrogation: 5,
+      athletics: 5,
+      brawl: 5,
+      characterId: 1,
+      charm: 5,
+      coercion: 5,
+      computers: 5,
+      cool: 5,
+      coordination: 5,
+      coreWorlds: 5,
+      deception: 5,
+      discipline: 5,
+      education: 5,
+      gunnery: 5,
+      id: 1,
+      leadership: 5,
+      lore: 5,
+      mechanics: 5,
+      medicine: 5,
+      melee: 5,
+      negotiation: 5,
+      outerRim: 5,
+      perception: 5,
+      piloting: 5,
+      pilotingSpace: 5,
+      rangedHeavy: 5,
+      rangedLight: 5,
+      resilience: 5,
+      skulduggery: 5,
+      stealth: 5,
+      streetWise: 5,
+      survival: 5,
+      underworld: 5,
+      vigilance: 5,
+      xenology: 5
+    }) {
+      astrogation
+      athletics
+      brawl
+      characterId
+      charm
+      coercion
+      computers
+      cool
+      coordination
+      coreWorlds
+      deception
+      discipline
+      education
+      gunnery
+      id
+      leadership
+      lore
+      mechanics
+      medicine
+      melee
+      negotiation
+      outerRim
+      perception
+      piloting
+      pilotingSpace
+      rangedHeavy
+      rangedLight
+      resilience
+      skulduggery
+      stealth
+      streetWise
+      survival
+      underworld
+      vigilance
+      xenology
+    }
+  }
+```
+
+#### RESPONSE
+```ruby
+ {
+   "data": {
+     "updateSkill": {
+        "astrogation": 5,
+        "athletics": 5,
+        "brawl": 5,
+        "characterId": 1,
+        "charm": 5,
+        "coercion": 5,
+        "computers": 5,
+        "cool": 5,
+        "coordination": 5,
+        "coreWorlds": 5,
+        "deception": 5,
+        "discipline": 5,
+        "education": 5,
+        "gunnery": 5,
+        "id": "1",
+        "leadership": 5,
+        "lore": 5,
+        "mechanics": 5,
+        "medicine": 5,
+        "melee": 5,
+        "negotiation": 5,
+        "outerRim": 5,
+        "perception": 5,
+        "piloting": 5,
+        "pilotingSpace": 5,
+        "rangedHeavy": 5,
+        "rangedLight": 5,
+        "resilience": 5,
+        "skulduggery": 5,
+        "stealth": 5,
+        "streetWise": 5,
+        "survival": 5,
+        "underworld": 5,
+        "vigilance": 5,
+        "xenology": 5
+      }
+    }
+  }
+```
 
 ## Running the tests
