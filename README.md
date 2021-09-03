@@ -92,80 +92,77 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 
 3. createSkill(characterId: ID)
 ```  mutation { 
-  skill: createSkill(
-  	input:{
-                characterId: 1
-                astrogation: 1
-                athletics: 1
-                brawl: 1
-                charm: 1
-                coercion: 1
-                computers: 1
-                cool: 1
-                coordination: 1
-                coreWorlds: 1
-                deception: 1
-                discipline: 1
-                education: 1
-                gunnery: 1
-                leadership: 1
-                lore: 1
-                mechanics: 1
-                medicine: 1
-                melee: 4
-                negotiation: 1
-                outerRim: 1
-                perception: 1
-                piloting: 1
-                pilotingSpace: 1
-                rangedHeavy: 2
-                rangedLight: 3
-                resilience: 4
-                skulduggery: 5
-                stealth: 2
-                streetWise: 2
-                survival: 1
-                underworld: 1
-                vigilance: 1
-                xenology: 1
-            }
-                  )
-
-  {							  
-    astrogation
-           athletics
-           brawl
-           charm
-           coercion
-           computers
-           cool
-           coordination
-           coreWorlds
-           deception
-           discipline
-           education
-           gunnery
-           id
-           leadership
-           lore
-           mechanics
-           medicine
-           melee
-           negotiation
-           outerRim
-           perception
-           piloting
-           pilotingSpace
-           rangedHeavy
-           rangedLight
-           resilience
-           skulduggery
-           stealth
-           streetWise
-           survival
-           underworld
-           vigilance
-           xenology
+      skill: createSkill(
+       input:{
+        characterId: 1
+        astrogation: 1
+        athletics: 1
+        brawl: 1
+        charm: 1
+        coercion: 1
+        computers: 1
+        cool: 1
+        coordination: 1
+        coreWorlds: 1
+        deception: 1
+        discipline: 1
+        education: 1
+        gunnery: 1
+        leadership: 1
+        lore: 1
+        mechanics: 1
+        medicine: 1
+        melee: 4
+        negotiation: 1
+        outerRim: 1
+        perception: 1
+        piloting: 1
+        pilotingSpace: 1
+        rangedHeavy: 2
+        rangedLight: 3
+        resilience: 4
+        skulduggery: 5
+        stealth: 2
+        streetWise: 2
+        survival: 1
+        underworld: 1
+        vigilance: 1
+        xenology: 1
+       }) {							  
+        astrogation
+        athletics
+        brawl
+        charm
+        coercion
+        computers
+        cool
+        coordination
+        coreWorlds
+        deception
+        discipline
+        education
+        gunnery
+        id
+        leadership
+        lore
+        mechanics
+        medicine
+        melee
+        negotiation
+        outerRim
+        perception
+        piloting
+        pilotingSpace
+        rangedHeavy
+        rangedLight
+        resilience
+        skulduggery
+        stealth
+        streetWise
+        survival
+        underworld
+        vigilance
+        xenology
    }
 }
 
