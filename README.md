@@ -78,7 +78,40 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 
 ### Queries 
  1. getCharacter(id: ID) - finds specific character in database by id. 
-<img width="1118" alt="Screen Shot 2021-09-01 at 11 17 26 AM" src="https://user-images.githubusercontent.com/70981102/131714120-1238e989-4454-4a71-9df2-b899e64342c2.png">
+### REQUEST
+```graphql 
+ query{
+  character(characterId: 1) {
+    age 
+    build
+    career
+    eyes
+    hair
+    height
+    id
+    name
+    specialization
+    species
+  }
+```
+### RESPONSE 
+
+```graphql
+{
+  "data": {
+    "character": {
+      "age": 15,
+      "build": "Ezra Legros",
+      "career": "Shonna Gleichner",
+      "eyes": "Roxann Murray",
+      "hair": "Rudolf Goyette II",
+      "height": "Jaleesa Mann",
+      "id": "1",
+      "name": "Gov. Sook Kuhlman",
+      "specialization": "Ellsworth Powlowski",
+      "species": ""Larhonda Dietrich" 
+    }
+``` 
 
 2. getUser(id: ID) - finds specific user in database by id.
 ![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
@@ -86,7 +119,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 3. getSkills(characterId: ID)
 ### REQUEST
 
-```
+```graphql 
 query{
   skill(characterId: 1) {
     astrogation
@@ -128,7 +161,8 @@ query{
 ```
 
 ### RESPONSE
-```
+
+```graphql
 {
   "data": {
     "skill": {
@@ -172,7 +206,9 @@ query{
 ```
 4. getUserCharacters(id: ID) - finds all of the characters for a user by user id.
 ### Request
-```ruby
+
+```graphql
+
 {
   user(id: 1) {
     username
@@ -192,7 +228,8 @@ query{
 }
 ```
 ### Response
-```ruby
+```graphql
+
 {
   "data": {
     "user": {
@@ -272,7 +309,10 @@ query{
 ![image](https://user-images.githubusercontent.com/74436194/131943128-298c2837-0ca1-4859-86e2-de73dc832105.png)
 
 3. createSkill(characterId: ID)
-```  mutation { 
+### REQUEST
+```graphql  
+
+mutation { 
       skill: createSkill(
        input:{
         characterId: 1
@@ -350,7 +390,7 @@ query{
  ```
  
  ### RESPONSE
-```
+```graphql
 {
   "data": {
     "skill": {
@@ -397,7 +437,7 @@ query{
 > Pasting code instead of screenshot due to the code not all fitting in one shot
 
 #### REQUEST
-```ruby
+```graphql
   mutation {
     updateSkill(input: {
       astrogation: 5,
@@ -476,7 +516,7 @@ query{
 ```
 
 #### RESPONSE
-```ruby
+```graphql
  {
    "data": {
      "updateSkill": {
