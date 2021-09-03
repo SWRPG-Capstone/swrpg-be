@@ -91,81 +91,82 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 ![image](https://user-images.githubusercontent.com/74436194/131943128-298c2837-0ca1-4859-86e2-de73dc832105.png)
 
 3. createSkill(characterId: ID)
-```  mutation {
-               skill: createSkill(
-                 input: {
-                   characterId: #{@character.id}
-                   astrogation: 1
-                   athletics: 2
-                   brawl: 3
-                   charm: 4
-                   coercion: 5
-                   computers: 1
-                   cool: 2
-                   coordination: 3
-                   coreWorlds: 4
-                   deception: 5
-                   discipline: 1
-                   education: 2
-                   gunnery: 3
-                   leadership: 4
-                   lore: 5
-                   mechanics: 1
-                   medicine: 2
-                   melee: 3
-                   negotiation: 4
-                   outerRim: 5
-                   perception: 1
-                   piloting: 2
-                   pilotingSpace: 3
-                   rangedHeavy: 4
-                   rangedLight: 5
-                   resilience: 1
-                   skulduggery: 2
-                   stealth: 3
-                   streetWise: 4
-                   survival: 5
-                   underworld: 1
-                   vigilance: 2
-                   xenology: 3
-                 }
-               ) {
-                 astrogation
-                 athletics
-                 brawl
-                 charm
-                 coercion
-                 computers
-                 cool
-                 coordination
-                 coreWorlds
-                 deception
-                 discipline
-                 education
-                 gunnery
-                 id
-                 leadership
-                 lore
-                 mechanics
-                 medicine
-                 melee
-                 negotiation
-                 outerRim
-                 perception
-                 piloting
-                 pilotingSpace
-                 rangedHeavy
-                 rangedLight
-                 resilience
-                 skulduggery
-                 stealth
-                 streetWise
-                 survival
-                 underworld
-                 vigilance
-                 xenology
-               }
-             }
+```  
+mutation {
+          skill: createSkill(
+            input: {
+              characterId: #{@character.id}
+              astrogation: 1
+              athletics: 2
+              brawl: 3
+              charm: 4
+              coercion: 5
+              computers: 1
+              cool: 2
+              coordination: 3
+              coreWorlds: 4
+              deception: 5
+              discipline: 1
+              education: 2
+              gunnery: 3
+              leadership: 4
+              lore: 5
+              mechanics: 1
+              medicine: 2
+              melee: 3
+              negotiation: 4
+              outerRim: 5
+              perception: 1
+              piloting: 2
+              pilotingSpace: 3
+              rangedHeavy: 4
+              rangedLight: 5
+              resilience: 1
+              skulduggery: 2
+              stealth: 3
+              streetWise: 4
+              survival: 5
+              underworld: 1
+              vigilance: 2
+              xenology: 3
+            }
+          ) {
+            astrogation
+            athletics
+            brawl
+            charm
+            coercion
+            computers
+            cool
+            coordination
+            coreWorlds
+            deception
+            discipline
+            education
+            gunnery
+            id
+            leadership
+            lore
+            mechanics
+            medicine
+            melee
+            negotiation
+            outerRim
+            perception
+            piloting
+            pilotingSpace
+            rangedHeavy
+            rangedLight
+            resilience
+            skulduggery
+            stealth
+            streetWise
+            survival
+            underworld
+            vigilance
+            xenology
+          }
+        }
  ```
  
  ### RESPONSE
