@@ -83,6 +83,94 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 2. getUser(id: ID) - finds specific user in database by id.
 ![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
 
+3. getCharacteristics(characterId: ID)
+### REQUEST
+
+```
+query{
+  skill(characterId: 1) {
+    astrogation
+    athletics
+    brawl
+    charm
+    coercion
+    computers
+    cool
+    coordination
+    coreWorlds
+    deception
+    discipline
+    education
+    gunnery
+    id
+    leadership
+    lore
+    mechanics
+    medicine
+    melee
+    negotiation
+    outerRim
+    perception
+    piloting
+    pilotingSpace
+    rangedHeavy
+    rangedLight
+    resilience
+    skulduggery
+    stealth
+    streetWise
+    survival
+    underworld
+    vigilance
+    xenology
+  }
+}
+```
+
+### RESPONSE
+```
+{
+  "data": {
+    "skill": {
+      "astrogation": 3,
+      "athletics": 3,
+      "brawl": 4,
+      "charm": 4,
+      "coercion": 3,
+      "computers": 4,
+      "cool": 2,
+      "coordination": 5,
+      "coreWorlds": 2,
+      "deception": 5,
+      "discipline": 2,
+      "education": 2,
+      "gunnery": 3,
+      "id": "1",
+      "leadership": 4,
+      "lore": 4,
+      "mechanics": 5,
+      "medicine": 2,
+      "melee": 5,
+      "negotiation": 2,
+      "outerRim": 1,
+      "perception": 3,
+      "piloting": 1,
+      "pilotingSpace": 5,
+      "rangedHeavy": 2,
+      "rangedLight": 5,
+      "resilience": 5,
+      "skulduggery": 3,
+      "stealth": 4,
+      "streetWise": 2,
+      "survival": 1,
+      "underworld": 1,
+      "vigilance": 5,
+      "xenology": 3
+    }
+  }
+}
+```
+
 ### Mutations 
 1. createCharacter(CreateCharacterInput) - creates new character in database.
 <img width="1389" alt="Screen Shot 2021-09-01 at 10 59 55 AM" src="https://user-images.githubusercontent.com/70981102/131714475-c2f81b53-3329-433c-947e-cc6640fa095d.png">
