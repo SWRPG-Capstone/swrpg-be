@@ -87,5 +87,132 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 1. createCharacter(CreateCharacterInput) - creates new character in database
 <img width="1389" alt="Screen Shot 2021-09-01 at 10 59 55 AM" src="https://user-images.githubusercontent.com/70981102/131714475-c2f81b53-3329-433c-947e-cc6640fa095d.png">
 
+2. updateSkill() - updates any/all of the skills for a specified character.
+> Pasting code instead of screenshot due to the code not all fitting in one shot
+
+
+#### REQUEST
+```ruby
+  mutation {
+    updateSkill(input: {
+      astrogation: 5,
+      athletics: 5,
+      brawl: 5,
+      characterId: 1,
+      charm: 5,
+      coercion: 5,
+      computers: 5,
+      cool: 5,
+      coordination: 5,
+      coreWorlds: 5,
+      deception: 5,
+      discipline: 5,
+      education: 5,
+      gunnery: 5,
+      id: 1,
+      leadership: 5,
+      lore: 5,
+      mechanics: 5,
+      medicine: 5,
+      melee: 5,
+      negotiation: 5,
+      outerRim: 5,
+      perception: 5,
+      piloting: 5,
+      pilotingSpace: 5,
+      rangedHeavy: 5,
+      rangedLight: 5,
+      resilience: 5,
+      skulduggery: 5,
+      stealth: 5,
+      streetWise: 5,
+      survival: 5,
+      underworld: 5,
+      vigilance: 5,
+      xenology: 5
+    }) {
+      astrogation
+      athletics
+      brawl
+      characterId
+      charm
+      coercion
+      computers
+      cool
+      coordination
+      coreWorlds
+      deception
+      discipline
+      education
+      gunnery
+      id
+      leadership
+      lore
+      mechanics
+      medicine
+      melee
+      negotiation
+      outerRim
+      perception
+      piloting
+      pilotingSpace
+      rangedHeavy
+      rangedLight
+      resilience
+      skulduggery
+      stealth
+      streetWise
+      survival
+      underworld
+      vigilance
+      xenology
+    }
+  }
+```
+
+#### RESPONSE
+```ruby
+ {
+   "data": {
+     "updateSkill": {
+        "astrogation": 5,
+        "athletics": 5,
+        "brawl": 5,
+        "characterId": 1,
+        "charm": 5,
+        "coercion": 5,
+        "computers": 5,
+        "cool": 5,
+        "coordination": 5,
+        "coreWorlds": 5,
+        "deception": 5,
+        "discipline": 5,
+        "education": 5,
+        "gunnery": 5,
+        "id": "1",
+        "leadership": 5,
+        "lore": 5,
+        "mechanics": 5,
+        "medicine": 5,
+        "melee": 5,
+        "negotiation": 5,
+        "outerRim": 5,
+        "perception": 5,
+        "piloting": 5,
+        "pilotingSpace": 5,
+        "rangedHeavy": 5,
+        "rangedLight": 5,
+        "resilience": 5,
+        "skulduggery": 5,
+        "stealth": 5,
+        "streetWise": 5,
+        "survival": 5,
+        "underworld": 5,
+        "vigilance": 5,
+        "xenology": 5
+      }
+    }
+  }
+```
 
 ## Running the tests
