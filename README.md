@@ -170,35 +170,95 @@ query{
   }
 }
 ```
-
-4. getCharacteristics(characterId: ID)
-### REQUEST
-```
-query{
-  characteristic(characterId: 1) {
-    agility
-    brawn
-    charPresence
-    cunning
-    id
-    intellect
-    willpower
+4. getUserCharacters(id: ID) - finds all of the characters for a user by user id.
+### Request
+```ruby
+{
+  user(id: 1) {
+    username
+    characters {
+      age
+      build
+      career
+      eyes
+      hair
+      height
+      id
+      name
+      specialization
+      species
+    }
   }
 }
 ```
-
-### RESPONSE
-```
+### Response
+```ruby
 {
   "data": {
-    "characteristic": {
-      "agility": 6,
-      "brawn": 3,
-      "charPresence": 4,
-      "cunning": 2,
-      "id": "1",
-      "intellect": 6,
-      "willpower": 3
+    "user": {
+      "username": "Prof. Rosalyn Rodriguez",
+      "characters": [
+        {
+          "age": 80,
+          "build": "Cruz Renner",
+          "career": "Libby Gorczany DO",
+          "eyes": "Milford Daniel DC",
+          "hair": "Belkis Quitzon DC",
+          "height": "Lynda Abbott",
+          "id": "1",
+          "name": "Jack Cummings",
+          "specialization": "Sara Hudson",
+          "species": "Rev. Manual Hackett"
+        },
+        {
+          "age": 83,
+          "build": "Mimi Toy",
+          "career": "Dennis Prohaska II",
+          "eyes": "Marcelle Lubowitz III",
+          "hair": "Collette Bartell LLD",
+          "height": "Roxann Kilback",
+          "id": "2",
+          "name": "Meda Miller",
+          "specialization": "Dr. Jasmin Bailey",
+          "species": "Guadalupe Fritsch"
+        },
+        {
+          "age": 17,
+          "build": "Shiela Nader",
+          "career": "Alexis Legros",
+          "eyes": "Katelynn Braun DC",
+          "hair": "Andrea Stiedemann",
+          "height": "Jaunita Effertz",
+          "id": "3",
+          "name": "Randy Russel",
+          "specialization": "Renato Heaney",
+          "species": "Ray Larkin"
+        },
+        {
+          "age": 80,
+          "build": "Robin Ritchie",
+          "career": "Trinidad West",
+          "eyes": "Debera McLaughlin",
+          "hair": "Corey Wolff",
+          "height": "Isreal Kunze",
+          "id": "4",
+          "name": "Hector Thiel",
+          "specialization": "Jalisa Gutmann DVM",
+          "species": "Monty Corkery"
+        },
+        {
+          "age": 87,
+          "build": "Carlos Quigley",
+          "career": "Msgr. Leota Nitzsche",
+          "eyes": "Everett Ernser",
+          "hair": "Ayesha O'Reilly",
+          "height": "Rosetta Armstrong",
+          "id": "5",
+          "name": "Marianne Gislason JD",
+          "specialization": "Clarence Upton IV",
+          "species": "Kera Funk"
+        }
+      ]
     }
   }
 }
