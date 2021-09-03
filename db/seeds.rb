@@ -7,7 +7,17 @@ end
 
 5.times do
   user = User.all.first
-  character = user.characters.create(name: Faker::Name.name, species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
+  character = user.characters.create(
+    name: Faker::Name.name,
+    species: Faker::Name.name,
+    specialization: Faker::Name.name,
+    career: Faker::Name.name,
+    age: Faker::Number.number(digits: 2),
+    height: Faker::Name.name,
+    build: Faker::Name.name,
+    hair: Faker::Name.name,
+    eyes: Faker::Name.name
+  )
 
       character.characteristics.create(
       brawn: Faker::Number.within(range: 1..6),
@@ -21,36 +31,36 @@ end
     character.skills.create(
       astrogation: Faker::Number.within(range: 1..5),
       athletics: Faker::Number.within(range: 1..5),
+      brawl: Faker::Number.within(range: 1..5),
       charm: Faker::Number.within(range: 1..5),
       coercion: Faker::Number.within(range: 1..5),
       computers: Faker::Number.within(range: 1..5),
       cool: Faker::Number.within(range: 1..5),
       coordination: Faker::Number.within(range: 1..5),
+      core_worlds: Faker::Number.within(range: 1..5),
       deception: Faker::Number.within(range: 1..5),
       discipline: Faker::Number.within(range: 1..5),
+      education: Faker::Number.within(range: 1..5),
+      gunnery: Faker::Number.within(range: 1..5),
       leadership: Faker::Number.within(range: 1..5),
+      lore: Faker::Number.within(range: 1..5),
       mechanics: Faker::Number.within(range: 1..5),
+      medicine: Faker::Number.within(range: 1..5),
+      melee: Faker::Number.within(range: 1..5),
       negotiation: Faker::Number.within(range: 1..5),
+      outer_rim: Faker::Number.within(range: 1..5),
       perception: Faker::Number.within(range: 1..5),
       piloting: Faker::Number.within(range: 1..5),
       piloting_space: Faker::Number.within(range: 1..5),
+      ranged_heavy: Faker::Number.within(range: 1..5),
+      ranged_light: Faker::Number.within(range: 1..5),
       resilience: Faker::Number.within(range: 1..5),
       skulduggery: Faker::Number.within(range: 1..5),
       stealth: Faker::Number.within(range: 1..5),
       street_wise: Faker::Number.within(range: 1..5),
       survival: Faker::Number.within(range: 1..5),
-      vigilance: Faker::Number.within(range: 1..5),
-      brawl: Faker::Number.within(range: 1..5),
-      gunnery: Faker::Number.within(range: 1..5),
-      melee: Faker::Number.within(range: 1..5),
-      medicine: Faker::Number.within(range: 1..5),
-      ranged_light: Faker::Number.within(range: 1..5),
-      ranged_heavy: Faker::Number.within(range: 1..5),
-      core_worlds: Faker::Number.within(range: 1..5),
-      education: Faker::Number.within(range: 1..5),
-      lore: Faker::Number.within(range: 1..5),
-      outer_rim: Faker::Number.within(range: 1..5),
       underworld: Faker::Number.within(range: 1..5),
+      vigilance: Faker::Number.within(range: 1..5),
       xenology: Faker::Number.within(range: 1..5)
     )
 
