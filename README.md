@@ -86,7 +86,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 3. getSkills(characterId: ID)
 ### REQUEST
 
-```
+```graphql 
 query{
   skill(characterId: 1) {
     astrogation
@@ -172,7 +172,7 @@ query{
 ```
 4. getUserCharacters(id: ID) - finds all of the characters for a user by user id.
 ### Request
-```ruby
+```graphql
 {
   user(id: 1) {
     username
@@ -192,7 +192,7 @@ query{
 }
 ```
 ### Response
-```ruby
+```graphql
 {
   "data": {
     "user": {
@@ -272,7 +272,8 @@ query{
 ![image](https://user-images.githubusercontent.com/74436194/131943128-298c2837-0ca1-4859-86e2-de73dc832105.png)
 
 3. createSkill(characterId: ID)
-```  mutation { 
+```graphql  
+mutation { 
       skill: createSkill(
        input:{
         characterId: 1
@@ -350,7 +351,7 @@ query{
  ```
  
  ### RESPONSE
-```
+```graphql
 {
   "data": {
     "skill": {
@@ -397,7 +398,7 @@ query{
 > Pasting code instead of screenshot due to the code not all fitting in one shot
 
 #### REQUEST
-```ruby
+```graphql
   mutation {
     updateSkill(input: {
       astrogation: 5,
@@ -476,7 +477,7 @@ query{
 ```
 
 #### RESPONSE
-```ruby
+```graphql
  {
    "data": {
      "updateSkill": {
