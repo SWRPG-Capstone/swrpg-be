@@ -1,11 +1,10 @@
 module Mutations
   module Skills
     class UpdateSkill < ::Mutations::BaseMutation
-      argument :id, Integer, required: true
-      argument :character_id, Integer, required: true may or may not need this
       argument :astrogation, Integer, required: true
       argument :athletics, Integer, required: true
       argument :brawl, Integer, required: true
+      argument :character_id, Integer, required: true
       argument :charm, Integer, required: true
       argument :coercion, Integer, required: true
       argument :computers, Integer, required: true
@@ -16,9 +15,11 @@ module Mutations
       argument :discipline, Integer, required: true
       argument :education, Integer, required: true
       argument :gunnery, Integer, required: true
+      argument :id, Integer, required: true
       argument :leadership, Integer, required: true
       argument :lore, Integer, required: true
       argument :mechanics, Integer, required: true
+      argument :medicine, Integer, required: true
       argument :melee, Integer, required: true
       argument :negotiation, Integer, required: true
       argument :outer_rim, Integer, required: true
@@ -40,21 +41,9 @@ module Mutations
 
       def resolve(id:, **attributes)
         Skill.find(id).tap do |skill|
-          require 'pry'; binding.pry
-
           skill.update!(attributes)
         end
       end
-
-      # def resolve(id:, skill:, amount_changed:)
-      #   Character.find(character_id).tap do |character|
-      #     require 'pry'; binding.pry
-      #
-      #     skill_current_level = character.skills.skill
-      #     character.skills.update!(skill_current_level += amount_changed)
-      #   end
-      # end
-
     end
   end
 end
