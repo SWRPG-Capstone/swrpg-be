@@ -171,6 +171,39 @@ query{
 }
 ```
 
+4. getCharacteristics(characterId: ID)
+### REQUEST
+```
+query{
+  characteristic(characterId: 1) {
+    agility
+    brawn
+    charPresence
+    cunning
+    id
+    intellect
+    willpower
+  }
+}
+```
+
+### RESPONSE
+```
+{
+  "data": {
+    "characteristic": {
+      "agility": 6,
+      "brawn": 3,
+      "charPresence": 4,
+      "cunning": 2,
+      "id": "1",
+      "intellect": 6,
+      "willpower": 3
+    }
+  }
+}
+```
+
 ### Mutations 
 1. createCharacter(CreateCharacterInput) - creates new character in database.
 <img width="1389" alt="Screen Shot 2021-09-01 at 10 59 55 AM" src="https://user-images.githubusercontent.com/70981102/131714475-c2f81b53-3329-433c-947e-cc6640fa095d.png">
