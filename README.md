@@ -93,7 +93,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 3. createSkill(characterId: ID)
 ```  mutation { 
   skill: createSkill(
-  							input:{
+  	input:{
                 characterId: 1
                 astrogation: 1
                 athletics: 1
