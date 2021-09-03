@@ -84,12 +84,14 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 ![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
 
 ### Mutations 
-1. createCharacter(CreateCharacterInput) - creates new character in database
+1. createCharacter(CreateCharacterInput) - creates new character in database.
 <img width="1389" alt="Screen Shot 2021-09-01 at 10 59 55 AM" src="https://user-images.githubusercontent.com/70981102/131714475-c2f81b53-3329-433c-947e-cc6640fa095d.png">
 
-2. updateSkill(UpdateSkillInput) - updates any/all of the skills for a specified character.
-> Pasting code instead of screenshot due to the code not all fitting in one shot
+2. createCharacteristic(CreateCharacteristicInput) - creates new characteristic in database.
+![image](https://user-images.githubusercontent.com/74436194/131943128-298c2837-0ca1-4859-86e2-de73dc832105.png)
 
+3. updateSkill(UpdateSkillInput) - updates any/all of the skills for a specified character.
+> Pasting code instead of screenshot due to the code not all fitting in one shot
 
 #### REQUEST
 ```ruby
