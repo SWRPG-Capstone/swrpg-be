@@ -97,6 +97,7 @@ RSpec.describe 'Update Skill', type: :request do
       json = JSON.parse(response.body, symbolize_names: true)
       data = json[:data][:updateSkill]
 
+      expect(data.count).to eq(35)
       expect(data).to include({
         :astrogation=>5,
         :athletics=>5,
@@ -134,6 +135,17 @@ RSpec.describe 'Update Skill', type: :request do
         :vigilance=>5,
         :xenology=>5
        })
+    end
+
+    it 'can update single skill' do
+      post '/graphql', params: { query: single_query(id: @skills.id, character_id: @character.id) }
+      json = JSON.parse(response.body, symbolize_names: true)
+      data = json[:data][:updateSkill]
+
+      expect(data.count).to eq(1)
+      expect(data).to have_key(:astrogation)
+      expect(data).to_not have_key(:agility)
+      expect(data[:astrogation]).to eq(1)
     end
 
     def query(id:, character_id:)
@@ -215,5 +227,20 @@ RSpec.describe 'Update Skill', type: :request do
         }
       GQL
     end
+
+    def single_query(id:, character_id:)
+      <<~GQL
+      mutation {
+        updateSkill(input: {
+          characterId: #{character_id}
+          id: #{id}
+          astrogation: 1
+        }) {
+          astrogation
+        }
+      }
+    GQL
+    end
   end
+
 end
