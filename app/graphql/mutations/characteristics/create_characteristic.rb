@@ -6,7 +6,6 @@ module Mutations
       argument :character_id, Integer, required: true
       argument :char_presence, Integer, required: true
       argument :cunning, Integer, required: true
-      argument :id, ID, required: true
       argument :intellect, Integer, required: true
       argument :willpower, Integer, required: true
 
