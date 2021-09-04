@@ -4,7 +4,7 @@ module Mutations
       argument :astrogation, Integer, required: false
       argument :athletics, Integer, required: false
       argument :brawl, Integer, required: false
-      argument :character_id, Integer, required: false
+      argument :character_id, Integer, required: true
       argument :charm, Integer, required: false
       argument :coercion, Integer, required: false
       argument :computers, Integer, required: false
@@ -17,7 +17,7 @@ module Mutations
       argument :gunnery, Integer, required: false
       argument :id, Integer, required: false
       argument :leadership, Integer, required: false
-      argument :lore, Integer, required: false
+      argument :lore, Integer, required: true
       argument :mechanics, Integer, required: false
       argument :medicine, Integer, required: false
       argument :melee, Integer, required: false
