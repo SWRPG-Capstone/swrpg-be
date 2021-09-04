@@ -14,7 +14,6 @@ RSpec.describe 'Create Characteristic', type: :request do
               characterId: #{@character.id}
               charPresence: 2
               cunning: 2
-              id: 6
               intellect: 2
               willpower: 2
               }) {
