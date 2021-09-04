@@ -115,6 +115,23 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 
 2. getUser(id: ID) - finds specific user in database by id.
 ![image](https://user-images.githubusercontent.com/74436194/131850866-7635834f-0294-4b2f-a435-1a91b45bbfaf.png)
+### REQUEST
+```graphql 
+ query{
+  user(id: 1) {
+    username
+  }
+```
+### RESPONSE
+```graphql
+{
+  "data": {
+    "user": {
+        "username": "Boops McGoops"
+    }
+  }
+}
+```
 
 3. getSkills(characterId: ID)
 ### REQUEST
@@ -303,10 +320,104 @@ query{
 
 ### Mutations 
 1. createCharacter(CreateCharacterInput) - creates new character in database.
-<img width="1389" alt="Screen Shot 2021-09-01 at 10 59 55 AM" src="https://user-images.githubusercontent.com/70981102/131714475-c2f81b53-3329-433c-947e-cc6640fa095d.png">
 
+### RESPONSE
+```graphql  
+
+mutation { 
+    createCharacter(
+       input:{
+        userID: "1"
+        name: "Boops McGoops"
+        age: 47 
+        build: "small but mighty"
+        career: "bounty hunter"
+        eyes: "yellow"
+        hair: "magenta"
+        height: "4ft 3in"
+        species: "cool alien"
+        specialization: "assasin"
+       }) {							  
+        age 
+        build
+        career
+        eyes 
+        hair
+        height
+        id
+        name
+        specialization
+        species
+   }
+}
+
+ ```
+
+ ### RESPONSE
+```graphql
+{
+  "data": {
+    "character": {
+        "age": 47, 
+        "build": "small but mighty",
+        "career": "bounty hunter"
+        "eyes": "yellow" 
+        "hair": "magenta"
+        "height": "4ft 3in"
+        "id": "6"
+        "name": "Boops McGoops"
+        "specialization": "assassin"
+        "species": "cool alien"
+    }
+  }
+}
+```
 2. createCharacteristic(CreateCharacteristicInput) - creates new characteristic in database.
-![image](https://user-images.githubusercontent.com/74436194/131943128-298c2837-0ca1-4859-86e2-de73dc832105.png)
+
+### REQUEST
+```graphql  
+
+mutation { 
+    createCharacteristic(
+       input:{
+         agility: 2
+         brawn: 2
+         characterId: 2
+         charPresence: 2
+         cunning: 2
+         intellect: 2
+         willpower: 3
+       }) {							  
+         agility
+         brawn
+         characterId 
+         charPresence 
+         cunning
+         id
+         intellect
+         willpower
+   }
+}
+ 
+ ```
+ ### RESPONSE 
+ 
+ ```graphql
+{
+  "data": {
+    "characteristic": {
+        "agility": 2
+        "brawn": 2
+        "characterId": 2
+        "charPresence": 2
+        "cunning": 2
+        "id": "6"
+        "intellect": 2
+        "willpower": 3
+    }
+  }
+}
+```
 
 3. createSkill(characterId: ID)
 ### REQUEST
