@@ -15,9 +15,9 @@ module Mutations
       argument :discipline, Integer, required: false
       argument :education, Integer, required: false
       argument :gunnery, Integer, required: false
-      argument :id, Integer, required: false
+      argument :id, Integer, required: true
       argument :leadership, Integer, required: false
-      argument :lore, Integer, required: true
+      argument :lore, Integer, required: false
       argument :mechanics, Integer, required: false
       argument :medicine, Integer, required: false
       argument :melee, Integer, required: false
