@@ -9,24 +9,24 @@ RSpec.describe 'CreateCharacter', type: :request do
                       createCharacter(
                                       input: {
                                       userId: "#{@user.id}"
-                                      name: "Mace Windu"
-                                      species: "human"
-                                      specialization: "being very serious"
-                                      career: "jedi"
                                       age: 34
-                                      height: "6ft 5in"
                                       build: "lean"
-                                      hair: "bald"
+                                      career: "jedi"
                                       eyes: "black"
-                                   } 
+                                      hair: "bald"
+                                      height: "6ft 5in"
+                                      name: "Mace Windu"
+                                      specialization: "being very serious"
+                                      species: "human"
+                                   }
                                  ) {
-                                      age 
+                                      age
                                       build
-                                      career 
-                                      eyes 
+                                      career
+                                      eyes
                                       hair
-                                      height 
-                                      id 
+                                      height
+                                      id
                                       name
                                       specialization
                                       species
@@ -44,16 +44,19 @@ RSpec.describe 'CreateCharacter', type: :request do
     it 'returns character' do
       post '/graphql', params: { query: @query }
       json = JSON.parse(response.body, symbolize_names: true)
-      data = json[:data][:character]
-      
-      expect(data[:name]).to eq("Mace Windu")
-      expect(data[:species]).to eq("human")
-      expect(data[:career]).to eq("jedi")
+      data = json[:data][:createCharacter]
+
       expect(data[:age]).to eq(34)
-      expect(data[:height]).to eq("6ft 5in")
       expect(data[:build]).to eq("lean")
-      expect(data[:hair]).to eq("bald")
+      expect(data[:career]).to eq("jedi")
       expect(data[:eyes]).to eq("black")
+      expect(data[:hair]).to eq("bald")
+      expect(data[:height]).to eq("6ft 5in")
+      # Trying to change as little as possible but in mutation for CreateCharacter ID is not an argument hence it defaults as a string
+      expect(data[:id]).to eq(@user.characters.last.id.to_s)
+      expect(data[:name]).to eq("Mace Windu")
+      expect(data[:specialization]).to eq("being very serious")
+      expect(data[:species]).to eq("human")
     end
   end
 end
