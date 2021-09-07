@@ -1,3 +1,3 @@
 User.destroy_all
 
-User.create(username: Faker::Name.name)
+User.create(username: 'Dice Master')
