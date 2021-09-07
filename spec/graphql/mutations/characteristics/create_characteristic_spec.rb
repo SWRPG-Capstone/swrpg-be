@@ -46,7 +46,6 @@ RSpec.describe 'Create Characteristic', type: :request do
       expect(data[:characterId]).to eq(@character.id)
       expect(data[:charPresence]).to eq(2)
       expect(data[:cunning]).to eq(2)
-      expect(data[:id]).to eq("6")
       expect(data[:intellect]).to eq(2)
       expect(data[:willpower]).to eq(2)
     end
