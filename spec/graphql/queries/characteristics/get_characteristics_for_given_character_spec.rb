@@ -50,6 +50,8 @@ RSpec.describe Types::CharacteristicType, type: :request do
       expect(characteristic[:cunning]).to eq(vader.characteristics[0].cunning)
       expect(characteristic[:intellect]).to eq(vader.characteristics[0].intellect)
       expect(characteristic[:willpower]).to eq(vader.characteristics[0].willpower)
+
+      expect(characteristic[:id]).to_not eq(mace.characteristics[0].id.to_s)
     end
   end
 end
