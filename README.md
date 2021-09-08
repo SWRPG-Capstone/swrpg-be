@@ -39,6 +39,13 @@ This is the backend repository that is responsible for sending API responses to 
   </ol>
 </details>
 
+![tect stack](https://user-images.githubusercontent.com/17935770/131262694-59d17a22-b9e8-4396-b130-cd33d7754e0f.png)
+<div align="center"> 
+  <img src="https://img.shields.io/badge/RAILS-CC0000?logo=rubyonrails&logoColor=fff&style=flat-square" alt="Rails Badge"> 
+ <img src="https://img.shields.io/badge/CircleCI-343434?logo=circlecis&logoColor=fff&style=flat-square" alt="CircleCI Badge"> 
+ <img src="https://img.shields.io/badge/GraphQL-E434AA?logo=graphql&logoColor=fff&style=flat-square" alt="GraphQL Badge"> 
+ <img src="https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=fff&style=flat-square" alt="Heroku Badge"> 
+</div>
 
 #### Versions
 
