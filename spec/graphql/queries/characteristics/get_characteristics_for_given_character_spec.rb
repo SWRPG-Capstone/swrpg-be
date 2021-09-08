@@ -34,6 +34,22 @@ RSpec.describe Types::CharacteristicType, type: :request do
       expect(characteristic).to have_key(:cunning)
       expect(characteristic).to have_key(:intellect)
       expect(characteristic).to have_key(:willpower)
+
+      expect(characteristic[:id]).to be_a(String)
+      expect(characteristic[:agility]).to be_an(Integer)
+      expect(characteristic[:brawn]).to be_an(Integer)
+      expect(characteristic[:charPresence]).to be_an(Integer)
+      expect(characteristic[:cunning]).to be_an(Integer)
+      expect(characteristic[:intellect]).to be_an(Integer)
+      expect(characteristic[:willpower]).to be_an(Integer)
+
+      expect(characteristic[:id]).to eq(vader.characteristics[0].id.to_s)
+      expect(characteristic[:agility]).to eq(vader.characteristics[0].agility)
+      expect(characteristic[:brawn]).to eq(vader.characteristics[0].brawn)
+      expect(characteristic[:charPresence]).to eq(vader.characteristics[0].char_presence)
+      expect(characteristic[:cunning]).to eq(vader.characteristics[0].cunning)
+      expect(characteristic[:intellect]).to eq(vader.characteristics[0].intellect)
+      expect(characteristic[:willpower]).to eq(vader.characteristics[0].willpower)
     end
   end
 end
