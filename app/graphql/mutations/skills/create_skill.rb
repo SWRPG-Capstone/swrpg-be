@@ -39,15 +39,13 @@ module Mutations
 
       def resolve(character_id:, astrogation:, athletics:, brawl:, charm:, coercion:, computers:, cool:, coordination:, core_worlds:, deception:, discipline:, education:, gunnery:, leadership:, lore:, mechanics:, medicine:, melee:, negotiation:, outer_rim:, perception:, piloting:, piloting_space:, ranged_heavy:, ranged_light:, resilience:, skulduggery:, stealth:, street_wise:, survival:, underworld:, vigilance:, xenology:)
 
-        skills = Skill.new(character_id: character_id, astrogation: astrogation, athletics: athletics, brawl: brawl, charm: charm, coercion: coercion, computers: computers, cool: cool, coordination: coordination, core_worlds: core_worlds, deception: deception, discipline: discipline, education: education, gunnery: gunnery, leadership: leadership, lore: lore, mechanics: mechanics, medicine: medicine, melee: melee, negotiation: negotiation, outer_rim: outer_rim, perception: perception, piloting: piloting, piloting_space: piloting_space, ranged_heavy: ranged_heavy, ranged_light: ranged_light, resilience: resilience, skulduggery: skulduggery, stealth: stealth, street_wise: street_wise, survival: survival, underworld: underworld, vigilance: vigilance, xenology: xenology)
-
+        skills = Skill.create!(character_id: character_id, astrogation: astrogation, athletics: athletics, brawl: brawl, charm: charm, coercion: coercion, computers: computers, cool: cool, coordination: coordination, core_worlds: core_worlds, deception: deception, discipline: discipline, education: education, gunnery: gunnery, leadership: leadership, lore: lore, mechanics: mechanics, medicine: medicine, melee: melee, negotiation: negotiation, outer_rim: outer_rim, perception: perception, piloting: piloting, piloting_space: piloting_space, ranged_heavy: ranged_heavy, ranged_light: ranged_light, resilience: resilience, skulduggery: skulduggery, stealth: stealth, street_wise: street_wise, survival: survival, underworld: underworld, vigilance: vigilance, xenology: xenology)
+        
         if skills.save
           skills
         else
-          {
-            skills: nil,
-            errors: [skills.errors.full_messages]
-          }
+          raise GraphQL::ExecutionError, character.errors.full_messages.join(", ")
+
         end
       end
     end

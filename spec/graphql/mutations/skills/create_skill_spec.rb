@@ -82,7 +82,8 @@ RSpec.describe 'CreateSkill', type: :request do
                       }
                     }
                     GQL
-    end
+      end
+      
       it 'creates skills' do
         expect(Skill.count).to eq(0)
         post '/graphql', params: { query: @query }
@@ -101,5 +102,49 @@ RSpec.describe 'CreateSkill', type: :request do
         expect(skills[:coercion]).to eq(5)
         expect(skills[:xenology]).to eq(3)
       end
+
+      describe 'sad path' do
+      before :each do
+        @user = User.create(username: "test")
+      end
+
+      it 'if no name included, returns error' do
+        @query =
+          <<~GQL
+            mutation {
+              createCharacter(input: {
+                userId: "#{@user.id}"
+                name: "#{}"
+                species: "human"
+                specialization: "being very serious"
+                career: "jedi"
+                age: 34
+                height: "6ft 5in"
+                build: "lean"
+                hair: "bald"
+                eyes: "black"
+              }
+              ) {
+                age
+                build
+                career
+                eyes
+                hair
+                height
+                id
+                name
+                specialization
+                species
+              }
+            }
+          GQL
+
+        post '/graphql', params: { query: @query}
+        json = JSON.parse(response.body)
+        data = json['errors']
+        expect(data[0]['message']).to eq("Name can't be blank")
+      end 
     end
   end
+end
+
