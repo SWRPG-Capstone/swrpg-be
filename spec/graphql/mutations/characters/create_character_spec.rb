@@ -100,6 +100,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Name can't be blank")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no species included, returns error' do
@@ -137,6 +138,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Species can't be blank")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no specialization included, returns error' do
@@ -174,6 +176,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Specialization can't be blank")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no career included, returns error' do
@@ -211,6 +214,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Career can't be blank")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no age included, returns error' do
@@ -248,6 +252,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Argument 'age' on InputObject 'CreateCharacterInput' has an invalid value (\"\"). Expected type 'Int!'.")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no height included, returns error' do
@@ -285,6 +290,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Height can't be blank")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no build included, returns error' do
@@ -322,6 +328,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Build can't be blank")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no hair included, returns error' do
@@ -359,6 +366,7 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Hair can't be blank")
+        expect(Character.count).to eq(0)
       end
 
       it 'if no eyes included, returns error' do
@@ -396,8 +404,8 @@ RSpec.describe 'CreateCharacter', type: :request do
         json = JSON.parse(response.body)
         data = json['errors']
         expect(data[0]['message']).to eq("Eyes can't be blank")
+        expect(Character.count).to eq(0)
       end
     end
-
   end
 end
