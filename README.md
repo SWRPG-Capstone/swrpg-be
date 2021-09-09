@@ -25,8 +25,8 @@ This is the backend repository that is responsible for sending API responses to 
 </div>
 
 ![about this project](https://user-images.githubusercontent.com/70981102/132727474-9f29d1bf-cd12-49f3-9acd-46511e177385.png)
-#### Schema 
 
+#### Schema 
 <img width="1199" alt="Screen Shot 2021-08-30 at 7 26 54 PM" src="https://user-images.githubusercontent.com/70981102/132761993-6c16bd91-f4ab-4c62-afca-400236d92b69.png">
 
 
