@@ -1,35 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe 'Create Characteristic', type: :request do
-  describe 'resolve' do
-    before :each do
-      @user = User.create(username: Faker::Name.name)
-      @character = @user.characters.create(name: Faker::Name.name, species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
-      @query =
-      <<~GQL
-          mutation {
-            createCharacteristic(input: {
-              agility: 2
-              brawn: 2
-              characterId: #{@character.id}
-              charPresence: 2
-              cunning: 2
-              intellect: 2
-              willpower: 2
-              }) {
-              agility
-              brawn
-              characterId
-              charPresence
-              cunning
-              id
-              intellect
-              willpower
-            }
+  before :each do
+    @user = User.create(username: Faker::Name.name)
+    @character = @user.characters.create(name: Faker::Name.name, species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
+    @query =
+    <<~GQL
+        mutation {
+          createCharacteristic(input: {
+            agility: 2
+            brawn: 2
+            characterId: #{@character.id}
+            charPresence: 2
+            cunning: 2
+            intellect: 2
+            willpower: 2
+            }) {
+            agility
+            brawn
+            characterId
+            charPresence
+            cunning
+            id
+            intellect
+            willpower
           }
-       GQL
-    end
+        }
+     GQL
+  end
 
+  describe 'Happy Path' do
     it 'creates characteristic' do
       expect(Characteristic.count).to eq(0)
       post '/graphql', params: { query: @query }
@@ -48,6 +48,104 @@ RSpec.describe 'Create Characteristic', type: :request do
       expect(data[:cunning]).to eq(2)
       expect(data[:intellect]).to eq(2)
       expect(data[:willpower]).to eq(2)
+    end
+  end
+
+  describe 'Sad Path' do
+    it "returns error when float given for agility attribute" do
+      @query =
+      <<~GQL
+          mutation {
+            createCharacteristic(input: {
+              agility: 2.06
+              brawn: 2
+              characterId: #{@character.id}
+              charPresence: 2
+              cunning: 2
+              intellect: 2
+              willpower: 2
+              }) {
+              agility
+              brawn
+              characterId
+              charPresence
+              cunning
+              id
+              intellect
+              willpower
+            }
+          }
+       GQL
+
+       post '/graphql', params: { query: @query }
+       json = JSON.parse(response.body, symbolize_names: true)
+       error = json[:errors][0][:message]
+
+       expect(error).to eq("Argument 'agility' on InputObject 'CreateCharacteristicInput' has an invalid value (2.06). Expected type 'Int!'.")
+    end
+
+    it "returns error when given nothing for agility attribute" do
+      @query =
+      <<~GQL
+          mutation {
+            createCharacteristic(input: {
+              agility: "#{}"
+              brawn: 2
+              characterId: #{@character.id}
+              charPresence: 2
+              cunning: 2
+              intellect: 2
+              willpower: 2
+              }) {
+              agility
+              brawn
+              characterId
+              charPresence
+              cunning
+              id
+              intellect
+              willpower
+            }
+          }
+       GQL
+
+       post '/graphql', params: { query: @query }
+       json = JSON.parse(response.body, symbolize_names: true)
+       error = json[:errors][0][:message]
+
+       expect(error).to eq("Argument 'agility' on InputObject 'CreateCharacteristicInput' has an invalid value (\"\"). Expected type 'Int!'.")
+    end
+
+    it "returns error when given boolean for agility attribute" do
+      @query =
+      <<~GQL
+          mutation {
+            createCharacteristic(input: {
+              agility: true
+              brawn: 2
+              characterId: #{@character.id}
+              charPresence: 2
+              cunning: 2
+              intellect: 2
+              willpower: 2
+              }) {
+              agility
+              brawn
+              characterId
+              charPresence
+              cunning
+              id
+              intellect
+              willpower
+            }
+          }
+       GQL
+
+       post '/graphql', params: { query: @query }
+       json = JSON.parse(response.body, symbolize_names: true)
+       error = json[:errors][0][:message]
+
+       expect(error).to eq("Argument 'agility' on InputObject 'CreateCharacteristicInput' has an invalid value (true). Expected type 'Int!'.")
     end
   end
 end
