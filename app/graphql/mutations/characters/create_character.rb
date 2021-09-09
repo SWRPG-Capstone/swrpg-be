@@ -12,20 +12,18 @@ module Mutations
       argument :hair, String, required: true
       argument :eyes, String, required: true
       type Types::CharacterType
-    
+
       def resolve(user_id:, name:, species:, specialization:, career:, age:, height:, build:, hair:, eyes:)
-        
+
         character = Character.new(user_id: user_id, name: name, species: species, specialization: specialization, career: career, age: age, height: height, build: build, hair: hair, eyes: eyes)
-        
+
         if character.save
           character
         else
-          {
-            character: nil,
-            errors: [character.errors.full_messages]
-          }
+          raise GraphQL::ExecutionError, character.errors.full_messages.join(", ")
         end
       end
+
     end
   end
 end
