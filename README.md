@@ -85,10 +85,11 @@ To make live queries to the GraphQL endpoint and see live schema information, se
   </ol>
 </details>
 
-### Queries 
-#### getCharacter 
-     finds specific character in database by id. 
-#### REQUEST
+## Queries 
+### getCharacter 
+finds specific character in database by id. 
+
+#### Request
 ```graphql 
  query{
   character(characterId: 1) {
@@ -104,7 +105,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
     species
   }
 ```
-#### RESPONSE 
+#### Response
 
 ```graphql
 {
@@ -123,17 +124,17 @@ To make live queries to the GraphQL endpoint and see live schema information, se
     }
 ``` 
 
-#### getUser
+### getUser
 finds specific user in database by id.
      
-### REQUEST
+### Request
 ```graphql 
  query{
   user(id: 1) {
     username
   }
 ```
-### RESPONSE
+### Response
 ```graphql
 {
   "data": {
@@ -144,10 +145,10 @@ finds specific user in database by id.
 }
 ```
 
-#### getSkills
+### getSkills
 finds skills specific to character 
 
-### REQUEST
+### Request
 
 ```graphql 
 query{
@@ -190,7 +191,7 @@ query{
 }
 ```
 
-### RESPONSE
+### Response
 
 ```graphql
 {
@@ -234,7 +235,7 @@ query{
   }
 }
 ```
-#### getUserCharacters 
+### getUserCharacters 
 finds all of the characters for a user by user id.
 
 ### Request
@@ -333,11 +334,11 @@ finds all of the characters for a user by user id.
 }
 ```
 
-### Mutations 
-#### createCharacter
+## Mutations 
+### createCharacter
 creates new character in database.
 
-### RESPONSE
+### Request
 ```graphql  
 
 mutation { 
@@ -369,7 +370,7 @@ mutation {
 
  ```
 
- ### RESPONSE
+ ### Response
 ```graphql
 {
   "data": {
@@ -388,10 +389,10 @@ mutation {
   }
 }
 ```
-#### createCharacteristic
+### createCharacteristic
 creates new characteristics for a given character in database.
 
-### REQUEST
+### Request
 ```graphql  
 
 mutation { 
@@ -417,7 +418,7 @@ mutation {
 }
  
  ```
- ### RESPONSE 
+ ### Response
  
  ```graphql
 {
@@ -436,10 +437,10 @@ mutation {
 }
 ```
 
-#### createSkill
+### createSkill
 creates new skillset for given character in datasbase.
 
-### REQUEST
+### Request
 ```graphql  
 
 mutation { 
@@ -519,7 +520,7 @@ mutation {
 
  ```
  
- ### RESPONSE
+ ### Response
 ```graphql
 {
   "data": {
@@ -563,10 +564,10 @@ mutation {
 }
 ```
 
-#### updateSkill
+### updateSkill
 updates any/all of the skills for a specified character.
 
-#### REQUEST
+#### Request
 ```graphql
   mutation {
     updateSkill(input: {
@@ -645,7 +646,7 @@ updates any/all of the skills for a specified character.
   }
 ```
 
-#### RESPONSE
+#### Response
 ```graphql
  {
    "data": {
@@ -689,5 +690,3 @@ updates any/all of the skills for a specified character.
     }
   }
 ```
-
-## Running the tests
