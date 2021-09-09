@@ -16,37 +16,15 @@ This is the backend repository that is responsible for sending API responses to 
 
 ![Screenshots of the wireframe](https://user-images.githubusercontent.com/17935770/131262115-72dfe9c0-5bae-4c05-b65c-319b952bda52.png)
 
-
-## About This Project
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-this-project">About This Project</a>
-      <ul>
-        <li><a href="#versions">Versions</a></li>
-      </ul>
-      <ul>
-        <li><a href="#important-gems">Important Gems</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-    </li>
-    <li><a href="#graphql-endpoints">GraphQL Endpoints</a></li>
-    <li><a href="#Running-the-tests">Running the Tests</a></li>
-  </ol>
-</details>
-
 ![tect stack](https://user-images.githubusercontent.com/17935770/131262694-59d17a22-b9e8-4396-b130-cd33d7754e0f.png)
 <div align="center"> 
-  <img src="https://img.shields.io/badge/RAILS-CC0000?logo=rubyonrails&logoColor=fff&style=flat-square" alt="Rails Badge"> 
+ <img src="https://img.shields.io/badge/RAILS-CC0000?logo=rubyonrails&logoColor=fff&style=flat-square" alt="Rails Badge"> 
  <img src="https://img.shields.io/badge/CircleCI-343434?logo=circlecis&logoColor=fff&style=flat-square" alt="CircleCI Badge"> 
  <img src="https://img.shields.io/badge/GraphQL-E434AA?logo=graphql&logoColor=fff&style=flat-square" alt="GraphQL Badge"> 
  <img src="https://img.shields.io/badge/Heroku-430098?logo=heroku&logoColor=fff&style=flat-square" alt="Heroku Badge"> 
 </div>
 
+![about this project](https://user-images.githubusercontent.com/70981102/132727474-9f29d1bf-cd12-49f3-9acd-46511e177385.png)
 #### Versions
 
 - Ruby 2.7.2
@@ -65,7 +43,7 @@ GRAPHQL API
 * graphiql-rails
 * rack-cors
 
-## Getting Started
+![getting started](https://user-images.githubusercontent.com/70981102/132727222-23150ec8-743d-406a-a7c6-cd1a46ffb3e8.png)
 
 These instructions will give you a copy of the project up and running on
 your local machine for development and testing purposes.
@@ -77,15 +55,41 @@ your local machine for development and testing purposes.
 3. Setup the database: `rails db:create`
 4. Run migrations: ` rails db:migrate`
 
-## GraphQL Endpoints
+![Endpoints](https://user-images.githubusercontent.com/70981102/132727354-cac13ab2-0d13-4c51-a5fb-9145826c1db1.png)
 
 Our GraphQL endpoints fall into three categories: queries, mutations, and filter queries.
 
 To make live queries to the GraphQL endpoint and see live schema information, setup the back-end by running `rails s` in the terminal and access GraphiQL at http://localhost:3001/graphiql. Use the screenshots as reference when formatting your queries and compare against the expected response. 
 
-### Queries 
- 1. getCharacter(id: ID) - finds specific character in database by id. 
-### REQUEST
+<details open="open">
+  <summary>Enpoints</summary>
+  <ol>
+    <li>
+      <a href="#queries">Queries</a>
+      <ul>
+       <li><a href="#getcharacter">getCharacter</a></li>
+        <li><a href="#getuser">getUser</a></li>
+        <li><a href="#getskills">getSkills</a></li>
+        <li><a href="#getusercharacters">getUserCharacters</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#mutations">Mutations</a>
+      <ul>
+        <li><a href="#createcharacter">createCharacter</a></li>
+        <li><a href="#createcharacteristic">createCharasteristic</a></li>
+        <li><a href="#createskill">createSkill</a></li>
+        <li><a href="#updateskill">updateSkill</a></li>
+      </ul>
+   </li>
+  </ol>
+</details>
+
+## Queries 
+### getCharacter 
+finds specific character in database by id. 
+
+#### Request
 ```graphql 
  query{
   character(characterId: 1) {
@@ -101,7 +105,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
     species
   }
 ```
-### RESPONSE 
+#### Response
 
 ```graphql
 {
@@ -120,15 +124,17 @@ To make live queries to the GraphQL endpoint and see live schema information, se
     }
 ``` 
 
-2. getUser(id: ID) - finds specific user in database by id.
-### REQUEST
+### getUser
+finds specific user in database by id.
+     
+### Request
 ```graphql 
  query{
   user(id: 1) {
     username
   }
 ```
-### RESPONSE
+### Response
 ```graphql
 {
   "data": {
@@ -139,8 +145,10 @@ To make live queries to the GraphQL endpoint and see live schema information, se
 }
 ```
 
-3. getSkills(characterId: ID)
-### REQUEST
+### getSkills
+finds skills specific to character 
+
+### Request
 
 ```graphql 
 query{
@@ -183,7 +191,7 @@ query{
 }
 ```
 
-### RESPONSE
+### Response
 
 ```graphql
 {
@@ -227,7 +235,9 @@ query{
   }
 }
 ```
-4. getUserCharacters(id: ID) - finds all of the characters for a user by user id.
+### getUserCharacters 
+finds all of the characters for a user by user id.
+
 ### Request
 
 ```graphql
@@ -324,10 +334,11 @@ query{
 }
 ```
 
-### Mutations 
-1. createCharacter(CreateCharacterInput) - creates new character in database.
+## Mutations 
+### createCharacter
+creates new character in database.
 
-### RESPONSE
+### Request
 ```graphql  
 
 mutation { 
@@ -359,7 +370,7 @@ mutation {
 
  ```
 
- ### RESPONSE
+ ### Response
 ```graphql
 {
   "data": {
@@ -378,9 +389,10 @@ mutation {
   }
 }
 ```
-2. createCharacteristic(CreateCharacteristicInput) - creates new characteristic in database.
+### createCharacteristic
+creates new characteristics for a given character in database.
 
-### REQUEST
+### Request
 ```graphql  
 
 mutation { 
@@ -406,7 +418,7 @@ mutation {
 }
  
  ```
- ### RESPONSE 
+ ### Response
  
  ```graphql
 {
@@ -425,8 +437,10 @@ mutation {
 }
 ```
 
-3. createSkill(characterId: ID)
-### REQUEST
+### createSkill
+creates new skillset for given character in datasbase.
+
+### Request
 ```graphql  
 
 mutation { 
@@ -506,7 +520,7 @@ mutation {
 
  ```
  
- ### RESPONSE
+ ### Response
 ```graphql
 {
   "data": {
@@ -550,10 +564,10 @@ mutation {
 }
 ```
 
-3. updateSkill(UpdateSkillInput) - updates any/all of the skills for a specified character.
-> Pasting code instead of screenshot due to the code not all fitting in one shot
+### updateSkill
+updates any/all of the skills for a specified character.
 
-#### REQUEST
+#### Request
 ```graphql
   mutation {
     updateSkill(input: {
@@ -632,7 +646,7 @@ mutation {
   }
 ```
 
-#### RESPONSE
+#### Response
 ```graphql
  {
    "data": {
@@ -676,5 +690,3 @@ mutation {
     }
   }
 ```
-
-## Running the tests
