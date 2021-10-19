@@ -36,17 +36,9 @@ This is the backend repository that is responsible for sending API responses to 
 - Rails 5.2.6
 
 #### Important Gems
-Testing
-* factory-bot_rails
-* faker
-* pry
-* shoulda-matchers
-* simplecov
+Testing: factory-bot_rails, faker, pry, shoulda-matchers, simplecov
  
-GRAPHQL API 
-* graphql
-* graphiql-rails
-* rack-cors
+GRAPHQL API: graphql, graphiql-rails, rack-cors
 
 ![getting started](https://user-images.githubusercontent.com/70981102/132727222-23150ec8-743d-406a-a7c6-cd1a46ffb3e8.png)
 
