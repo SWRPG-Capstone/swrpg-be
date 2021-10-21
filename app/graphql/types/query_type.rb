@@ -57,7 +57,7 @@ module Types
 
     def obligation(characterId:)
       Obligation.find_by(character_id: characterId)
-    end    
+    end
     
   end
 end
