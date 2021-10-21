@@ -68,6 +68,8 @@ To make live queries to the GraphQL endpoint and see live schema information, se
         <li><a href="#getskills">getSkills</a></li>
         <li><a href="#getobligations">getObligations</a></li>
         <li><a href="#getequipmentlogs">getEquipmentLogs</a></li>
+        <li><a href="#gettalents">getTalents</a></li>
+        <li><a href="#getweapons">getWeapons</a></li>
         <li><a href="#getusercharacters">getUserCharacters</a></li>
       </ul>
     </li>
@@ -284,6 +286,60 @@ query{
   }
 }
 ```
+### getTalents 
+finds talents specific to character 
+
+### Request
+```graphql 
+query{
+  talent(characterId: 1){
+    name
+    pageNumber
+    abilitySummary
+  }
+}
+```
+### Response 
+```graphql
+{
+  "data": {
+    "talent": {
+      "name": "Sid Kessler",
+      "pageNumber": 3,
+      "abilitySummary": "Rocco Bernhard"
+    }
+  }
+}
+```
+### getWeapons
+finds weapons specific to character 
+
+### Request
+```graphql 
+query{
+  weapon(characterId: 1){
+    skill
+    special
+    damage
+    range
+    critical
+  }
+}
+```
+### Response 
+```graphql
+{
+  "data": {
+    "weapon": {
+      "skill": "Jose Thiel",
+      "special": "Ms. Angel Thiel",
+      "damage": 1,
+      "range": 5,
+      "critical": 4
+    }
+  }
+}
+```
 
 ### getUserCharacters 
 finds all of the characters for a user by user id.
@@ -461,8 +517,7 @@ mutation {
          willpower
    }
 }
- 
- ```
+```
  ### Response
  ```graphql
 {
