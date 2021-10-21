@@ -232,6 +232,30 @@ query{
   }
 }
 ```
+
+### getObligations 
+finds obligations specific to character 
+
+### Request
+```graphql
+{
+  obligation(characterId: 1){
+    obType
+    magnitude
+  }
+}
+```
+### Response 
+``` graphql 
+{
+  "data": {
+    "obligation": {
+      "obType": "sturdy",
+      "magnitude": 5
+    }
+  }
+}
+```
 ### getUserCharacters 
 finds all of the characters for a user by user id.
 
@@ -364,8 +388,7 @@ mutation {
         species
    }
 }
-
- ```
+```
 
  ### Response
 ```graphql
@@ -514,7 +537,6 @@ mutation {
         xenology
    }
 }
-
  ```
  
  ### Response
