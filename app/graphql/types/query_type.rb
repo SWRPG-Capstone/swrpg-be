@@ -85,5 +85,14 @@ module Types
     def motivation(characterId:)
       Motivation.find_by(character_id: characterId)
     end
+
+    # Find talents for a character
+    field :talent, Types::TalentType, null: false do
+      argument :characterId, Integer, required: true
+    end
+
+    def talent(characterId:)
+      Talent.find_by(character_id: characterId)
+    end   
   end
 end
