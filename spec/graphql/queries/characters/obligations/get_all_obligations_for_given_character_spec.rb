@@ -34,4 +34,4 @@ RSpec.describe Types::ObligationType, type: :request do
       end 
     end
   end
-end 
+end
