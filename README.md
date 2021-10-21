@@ -70,6 +70,10 @@ To make live queries to the GraphQL endpoint and see live schema information, se
        <li><a href="#getcharacter">getCharacter</a></li>
         <li><a href="#getuser">getUser</a></li>
         <li><a href="#getskills">getSkills</a></li>
+        <li><a href="#getmotivations">getMotivations</a></li>
+        <li><a href="#getequipmentlogs">getEquipmentLogs</a></li>
+        <li><a href="#getcriticalinjuries">getCriticalInjuries</a></li>
+        <li><a href="#getobligations">getObligations</a></li>
         <li><a href="#getusercharacters">getUserCharacters</a></li>
       </ul>
     </li>
@@ -91,7 +95,7 @@ finds specific character in database by id.
 
 #### Request
 ```graphql 
- query{
+query{
   character(characterId: 1) {
     age 
     build
@@ -129,7 +133,7 @@ finds specific user in database by id.
      
 ### Request
 ```graphql 
- query{
+query{
   user(id: 1) {
     username
   }
@@ -144,12 +148,10 @@ finds specific user in database by id.
   }
 }
 ```
-
 ### getSkills
 finds skills specific to character 
 
 ### Request
-
 ```graphql 
 query{
   skill(characterId: 1) {
@@ -190,9 +192,7 @@ query{
   }
 }
 ```
-
 ### Response
-
 ```graphql
 {
   "data": {
@@ -235,14 +235,106 @@ query{
   }
 }
 ```
+### getMotivations
+finds motivation specific to character 
+
+### Request
+```graphql 
+query {
+  motivation(characterId: 1){
+    moType
+  }
+}
+```
+### Response
+```graphql
+{
+  "data": {
+    "motivation": {
+      "moType": "Dung Bartoletti"
+    }
+  }
+}
+```
+### getEquipmentLogs
+finds equipment logs specific to character 
+
+### Request
+```graphql 
+query {
+  equipmentLog(characterId: 1){
+    credits
+    weapons
+    armor
+    personalGear
+  }
+}
+```
+### Response
+```graphql
+{
+  "data": {
+    "equipmentLog": {
+      "credits": "Christia Kessler",
+      "weapons": "Veta Collier DDS",
+      "armor": "Nakia McDermott",
+      "personalGear": "Hoa Kuhic"
+    }
+  }
+}
+```
+### getCriticalInjuries
+finds critical injuries specific to character 
+
+### Request
+```graphql 
+query {
+  criticalInjury(characterId: 1){
+     severity
+     result
+  }
+}
+```
+### Response
+```graphql
+{
+  "data": {
+    "criticalInjury": {
+      "severity": 5,
+      "result": "Antone Carroll"
+    }
+  }
+}
+```
+### getObligations
+finds obligations specific to character 
+
+### Request
+```graphql 
+query {
+  obligation(characterId: 1){
+     obType
+     magnitude
+  }
+}
+```
+### Response
+```graphql
+{
+  "data": {
+    "obligation": {
+      "obType": "sturdy",
+      "magnitude": 5
+    }
+  }
+}
+```
 ### getUserCharacters 
 finds all of the characters for a user by user id.
 
 ### Request
-
 ```graphql
-
-{
+query{
   user(id: 1) {
     username
     characters {
@@ -262,7 +354,6 @@ finds all of the characters for a user by user id.
 ```
 ### Response
 ```graphql
-
 {
   "data": {
     "user": {
