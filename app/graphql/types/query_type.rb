@@ -75,6 +75,15 @@ module Types
 
     def critical_injury(characterId:)
       CriticalInjury.find_by(character_id: characterId)
-    end    
+    end
+
+    # Find motivations for a character
+    field :motivation, Types::MotivationType, null: false do
+      argument :characterId, Integer, required: true
+    end
+
+    def motivation(characterId:)
+      Motivation.find_by(character_id: characterId)
+    end
   end
 end
