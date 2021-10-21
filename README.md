@@ -29,7 +29,6 @@ This is the backend repository that is responsible for sending API responses to 
 #### Schema 
 <img width="1199" alt="Screen Shot 2021-08-30 at 7 26 54 PM" src="https://user-images.githubusercontent.com/70981102/132761993-6c16bd91-f4ab-4c62-afca-400236d92b69.png">
 
-
 #### Versions
 
 - Ruby 2.7.2
@@ -67,6 +66,8 @@ To make live queries to the GraphQL endpoint and see live schema information, se
        <li><a href="#getcharacter">getCharacter</a></li>
         <li><a href="#getuser">getUser</a></li>
         <li><a href="#getskills">getSkills</a></li>
+        <li><a href="#getobligations">getObligations</a></li>
+        <li><a href="#getequipmentlogs">getEquipmentLogs</a></li>
         <li><a href="#getusercharacters">getUserCharacters</a></li>
       </ul>
     </li>
@@ -88,7 +89,7 @@ finds specific character in database by id.
 
 #### Request
 ```graphql 
- query{
+query{
   character(characterId: 1) {
     age 
     build
@@ -103,7 +104,6 @@ finds specific character in database by id.
   }
 ```
 #### Response
-
 ```graphql
 {
   "data": {
@@ -126,7 +126,7 @@ finds specific user in database by id.
      
 ### Request
 ```graphql 
- query{
+query{
   user(id: 1) {
     username
   }
@@ -238,7 +238,7 @@ finds obligations specific to character
 
 ### Request
 ```graphql
-{
+query{
   obligation(characterId: 1){
     obType
     magnitude
@@ -256,14 +256,42 @@ finds obligations specific to character
   }
 }
 ```
+
+### getEquipmentLogs 
+finds equipment log specific to character 
+
+### Request
+```graphql 
+query{
+  equipmentLog(characterId: 1){
+    credits
+    weapons
+    armor
+    personalGear
+  }
+}
+```
+### Response 
+```graphql
+{
+  "data": {
+    "equipmentLog": {
+      "credits": "Christia Kessler",
+      "weapons": "Veta Collier DDS",
+      "armor": "Nakia McDermott",
+      "personalGear": "Hoa Kuhic"
+    }
+  }
+}
+```
+
 ### getUserCharacters 
 finds all of the characters for a user by user id.
 
 ### Request
 
 ```graphql
-
-{
+query{
   user(id: 1) {
     username
     characters {
@@ -283,7 +311,6 @@ finds all of the characters for a user by user id.
 ```
 ### Response
 ```graphql
-
 {
   "data": {
     "user": {
@@ -361,7 +388,6 @@ creates new character in database.
 
 ### Request
 ```graphql  
-
 mutation { 
     createCharacter(
        input:{
@@ -414,7 +440,6 @@ creates new characteristics for a given character in database.
 
 ### Request
 ```graphql  
-
 mutation { 
     createCharacteristic(
        input:{
@@ -439,7 +464,6 @@ mutation {
  
  ```
  ### Response
- 
  ```graphql
 {
   "data": {
@@ -462,7 +486,6 @@ creates new skillset for given character in datasbase.
 
 ### Request
 ```graphql  
-
 mutation { 
       skill: createSkill(
        input:{
