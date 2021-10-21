@@ -47,7 +47,7 @@ module Types
     end
 
     def characteristic(characterId:)
-      char = Characteristic.find_by(character_id: characterId)
+      Characteristic.find_by(character_id: characterId)
     end
 
     # Find obligations for a character
@@ -66,7 +66,15 @@ module Types
 
     def equipment_log(characterId:)
       EquipmentLog.find_by(character_id: characterId)
-    end    
+    end
     
+    # Find critical injuries for a character
+    field :critical_injury, Types::CriticalInjuryType, null: false do
+      argument :characterId, Integer, required: true
+    end
+
+    def critical_injury(characterId:)
+      CriticalInjury.find_by(character_id: characterId)
+    end    
   end
 end
