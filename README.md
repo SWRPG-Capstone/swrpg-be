@@ -25,23 +25,19 @@ This is the backend repository that is responsible for sending API responses to 
 </div>
 
 ![about this project](https://user-images.githubusercontent.com/70981102/132727474-9f29d1bf-cd12-49f3-9acd-46511e177385.png)
+
+#### Schema 
+<img width="1199" alt="Screen Shot 2021-08-30 at 7 26 54 PM" src="https://user-images.githubusercontent.com/70981102/132761993-6c16bd91-f4ab-4c62-afca-400236d92b69.png">
+
 #### Versions
 
 - Ruby 2.7.2
 - Rails 5.2.6
 
 #### Important Gems
-Testing
-* factory-bot_rails
-* faker
-* pry
-* shoulda-matchers
-* simplecov
+Testing: factory-bot_rails, faker, pry, shoulda-matchers, simplecov
  
-GRAPHQL API 
-* graphql
-* graphiql-rails
-* rack-cors
+GRAPHQL API: graphql, graphiql-rails, rack-cors
 
 ![getting started](https://user-images.githubusercontent.com/70981102/132727222-23150ec8-743d-406a-a7c6-cd1a46ffb3e8.png)
 
@@ -71,9 +67,10 @@ To make live queries to the GraphQL endpoint and see live schema information, se
         <li><a href="#getuser">getUser</a></li>
         <li><a href="#getskills">getSkills</a></li>
         <li><a href="#getmotivations">getMotivations</a></li>
-        <li><a href="#getequipmentlogs">getEquipmentLogs</a></li>
-        <li><a href="#getcriticalinjuries">getCriticalInjuries</a></li>
         <li><a href="#getobligations">getObligations</a></li>
+        <li><a href="#getequipmentlogs">getEquipmentLogs</a></li>
+        <li><a href="#gettalents">getTalents</a></li>
+        <li><a href="#getweapons">getWeapons</a></li>
         <li><a href="#getusercharacters">getUserCharacters</a></li>
       </ul>
     </li>
@@ -110,7 +107,6 @@ query{
   }
 ```
 #### Response
-
 ```graphql
 {
   "data": {
@@ -252,7 +248,30 @@ query {
   "data": {
     "motivation": {
       "moType": "Dung Bartoletti"
-    }
+  }
+}
+```
+
+### getObligations 
+finds obligations specific to character 
+
+### Request
+```graphql
+query{
+  obligation(characterId: 1){
+    obType
+    magnitude
+  }
+}
+```
+### Response 
+``` graphql 
+{
+  "data": {
+    "obligation": {
+      "obType": "sturdy",
+      "magnitude": 5
+          }
   }
 }
 ```
@@ -261,7 +280,7 @@ finds equipment logs specific to character
 
 ### Request
 ```graphql 
-query {
+query{
   equipmentLog(characterId: 1){
     credits
     weapons
@@ -270,7 +289,7 @@ query {
   }
 }
 ```
-### Response
+### Response 
 ```graphql
 {
   "data": {
@@ -306,25 +325,55 @@ query {
   }
 }
 ```
-### getObligations
-finds obligations specific to character 
+### getTalents 
+finds talents specific to character 
 
 ### Request
 ```graphql 
-query {
-  obligation(characterId: 1){
-     obType
-     magnitude
+query{
+  talent(characterId: 1){
+    name
+    pageNumber
+    abilitySummary
   }
 }
 ```
-### Response
+### Response 
 ```graphql
 {
   "data": {
-    "obligation": {
-      "obType": "sturdy",
-      "magnitude": 5
+    "talent": {
+      "name": "Sid Kessler",
+      "pageNumber": 3,
+      "abilitySummary": "Rocco Bernhard"
+  }
+}
+```
+### getWeapons
+finds weapons specific to character 
+
+### Request
+```graphql 
+query{
+  weapon(characterId: 1){
+    skill
+    special
+    damage
+    range
+    critical
+  }
+}
+```
+### Response 
+```graphql
+{
+  "data": {
+    "weapon": {
+      "skill": "Jose Thiel",
+      "special": "Ms. Angel Thiel",
+      "damage": 1,
+      "range": 5,
+      "critical": 4
     }
   }
 }
@@ -431,7 +480,6 @@ creates new character in database.
 
 ### Request
 ```graphql  
-
 mutation { 
     createCharacter(
        input:{
@@ -458,8 +506,7 @@ mutation {
         species
    }
 }
-
- ```
+```
 
  ### Response
 ```graphql
@@ -485,7 +532,6 @@ creates new characteristics for a given character in database.
 
 ### Request
 ```graphql  
-
 mutation { 
     createCharacteristic(
        input:{
@@ -507,10 +553,8 @@ mutation {
          willpower
    }
 }
- 
- ```
+```
  ### Response
- 
  ```graphql
 {
   "data": {
@@ -533,7 +577,6 @@ creates new skillset for given character in datasbase.
 
 ### Request
 ```graphql  
-
 mutation { 
       skill: createSkill(
        input:{
@@ -608,7 +651,6 @@ mutation {
         xenology
    }
 }
-
  ```
  
  ### Response
