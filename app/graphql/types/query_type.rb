@@ -58,6 +58,15 @@ module Types
     def obligation(characterId:)
       Obligation.find_by(character_id: characterId)
     end
+
+    # Find equipment logs for a character
+    field :equipment_log, Types::EquipmentLogType, null: false do
+      argument :characterId, Integer, required: true
+    end
+
+    def equipment_log(characterId:)
+      EquipmentLog.find_by(character_id: characterId)
+    end    
     
   end
 end
