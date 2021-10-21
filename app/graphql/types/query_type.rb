@@ -31,6 +31,7 @@ module Types
     def character(id:)
       Character.find(id)
     end
+
     # Find skills for a character
     field :skill, Types::SkillType, null: false do
       argument :characterId, Integer, required: true
@@ -39,6 +40,7 @@ module Types
     def skill(characterId:)
       Skill.find_by(character_id: characterId)
     end
+
     # Find characteristics for a character
     field :characteristic, Types::CharacteristicType, null: false do
       argument :characterId, Integer, required: true
@@ -47,5 +49,15 @@ module Types
     def characteristic(characterId:)
       char = Characteristic.find_by(character_id: characterId)
     end
+
+    # Find obligations for a character
+    field :obligation, Types::ObligationType, null: false do
+      argument :characterId, Integer, required: true
+    end
+
+    def obligation(characterId:)
+      Obligation.find_by(character_id: characterId)
+    end    
+    
   end
 end
