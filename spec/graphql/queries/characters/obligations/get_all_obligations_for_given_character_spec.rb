@@ -12,14 +12,25 @@ RSpec.describe Types::CharacteristicType, type: :request do
 
         query = <<~GQL
                   query {
-                    obligations(characterId: #{vader.id}){
-                      ob_type
+                    obligation(characterId: #{vader.id}){
+                      obType
                       magnitude
                     }
                   }
                 GQL
         
+        post '/graphql', params: {query: query}
+        json = JSON.parse(response.body, symbolize_names: true)
+        obligation = json[:data][:obligation]
+       
+        expect(obligation).to have_key(:obType)
+        expect(obligation).to have_key(:magnitude)
+
+        expect(obligation[:obType]).to be_a(String)
+        expect(obligation[:magnitude]).to be_an(Integer)
         
+        expect(obligation[:obType]).to eq(vader.obligations[0].ob_type.to_s)
+        expect(obligation[:magnitude]).to eq(vader.obligations[0].magnitude)
       end 
     end
   end
