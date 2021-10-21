@@ -93,6 +93,15 @@ module Types
 
     def talent(characterId:)
       Talent.find_by(character_id: characterId)
-    end   
+    end
+
+    # Find weapons for a character
+    field :weapon, Types::WeaponType, null: false do
+      argument :characterId, Integer, required: true
+    end
+
+    def weapon(characterId:)
+      Weapon.find_by(character_id: characterId)
+    end    
   end
 end
