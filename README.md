@@ -66,6 +66,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
        <li><a href="#getcharacter">getCharacter</a></li>
         <li><a href="#getuser">getUser</a></li>
         <li><a href="#getskills">getSkills</a></li>
+        <li><a href="#getmotivations">getMotivations</a></li>
         <li><a href="#getobligations">getObligations</a></li>
         <li><a href="#getequipmentlogs">getEquipmentLogs</a></li>
         <li><a href="#gettalents">getTalents</a></li>
@@ -143,12 +144,10 @@ query{
   }
 }
 ```
-
 ### getSkills
 finds skills specific to character 
 
 ### Request
-
 ```graphql 
 query{
   skill(characterId: 1) {
@@ -189,9 +188,7 @@ query{
   }
 }
 ```
-
 ### Response
-
 ```graphql
 {
   "data": {
@@ -234,6 +231,26 @@ query{
   }
 }
 ```
+### getMotivations
+finds motivation specific to character 
+
+### Request
+```graphql 
+query {
+  motivation(characterId: 1){
+    moType
+  }
+}
+```
+### Response
+```graphql
+{
+  "data": {
+    "motivation": {
+      "moType": "Dung Bartoletti"
+  }
+}
+```
 
 ### getObligations 
 finds obligations specific to character 
@@ -254,13 +271,12 @@ query{
     "obligation": {
       "obType": "sturdy",
       "magnitude": 5
-    }
+          }
   }
 }
 ```
-
-### getEquipmentLogs 
-finds equipment log specific to character 
+### getEquipmentLogs
+finds equipment logs specific to character 
 
 ### Request
 ```graphql 
@@ -286,6 +302,29 @@ query{
   }
 }
 ```
+### getCriticalInjuries
+finds critical injuries specific to character 
+
+### Request
+```graphql 
+query {
+  criticalInjury(characterId: 1){
+     severity
+     result
+  }
+}
+```
+### Response
+```graphql
+{
+  "data": {
+    "criticalInjury": {
+      "severity": 5,
+      "result": "Antone Carroll"
+    }
+  }
+}
+```
 ### getTalents 
 finds talents specific to character 
 
@@ -307,7 +346,6 @@ query{
       "name": "Sid Kessler",
       "pageNumber": 3,
       "abilitySummary": "Rocco Bernhard"
-    }
   }
 }
 ```
@@ -340,12 +378,10 @@ query{
   }
 }
 ```
-
 ### getUserCharacters 
 finds all of the characters for a user by user id.
 
 ### Request
-
 ```graphql
 query{
   user(id: 1) {
