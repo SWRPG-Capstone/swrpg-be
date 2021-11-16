@@ -80,6 +80,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
         <li><a href="#createcharacter">createCharacter</a></li>
         <li><a href="#createcharacteristic">createCharasteristic</a></li>
         <li><a href="#createskill">createSkill</a></li>
+        <li><a href="#createweapon">createWeapon</a></li>
         <li><a href="#updateskill">updateSkill</a></li>
       </ul>
    </li>
@@ -696,7 +697,44 @@ mutation {
   }
 }
 ```
+### createWeapon
+creates new weapon for a given character in database.
 
+#### Request
+```graphql
+mutation { 
+    createWeapon(
+       input:{
+         characterId: 2
+         skill: "charm"
+         special: "betrayal"
+         damage: 10 
+         range: 3
+         critical: 12
+       }) {							  
+         skill
+    		 special
+    		 damage
+    		 range 
+    		 critical
+   }
+}
+```
+
+#### Response
+```graphql 
+{
+  "data": {
+    "createWeapon": {
+      "skill": "charm",
+      "special": "betrayal",
+      "damage": 10,
+      "range": 3,
+      "critical": 12
+    }
+  }
+}
+```
 ### updateSkill
 updates any/all of the skills for a specified character.
 
