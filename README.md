@@ -81,6 +81,7 @@ To make live queries to the GraphQL endpoint and see live schema information, se
         <li><a href="#createcharacteristic">createCharasteristic</a></li>
         <li><a href="#createskill">createSkill</a></li>
         <li><a href="#createweapon">createWeapon</a></li>
+        <li><a href="#createcrtiticalinujuries">createCriticalInjury</a></li>
         <li><a href="#updateskill">updateSkill</a></li>
       </ul>
    </li>
@@ -579,7 +580,7 @@ creates new skillset for given character in datasbase.
 ### Request
 ```graphql  
 mutation { 
-      skill: createSkill(
+      createSkill(
        input:{
         characterId: 1
         astrogation: 1
@@ -712,11 +713,11 @@ mutation {
          range: 3
          critical: 12
        }) {							  
-         skill
-    		 special
-    		 damage
-    		 range 
-    		 critical
+        skill
+    		  special
+    		  damage
+    		  range 
+    		  critical
    }
 }
 ```
@@ -735,6 +736,37 @@ mutation {
   }
 }
 ```
+
+### createCriticalInjury
+creates new critical injury for a given character in database.
+
+#### Request
+```graphql
+mutation {
+    createCriticalInjury(
+       input: {
+         characterId: 2
+         severity: 1
+         result: "damaged" 
+         }) {
+          severity 
+          result
+ }
+}
+```
+
+#### Response 
+```graphql 
+{
+  "data": {
+    "createCriticalInjury": {
+      "severity": 1,
+      "result": "damaged"
+    }
+  }
+}
+```
+
 ### updateSkill
 updates any/all of the skills for a specified character.
 
