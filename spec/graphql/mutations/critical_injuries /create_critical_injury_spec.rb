@@ -63,7 +63,7 @@ RSpec.describe 'CreateCriticalInjury', type: :request do
         post '/graphql', params: { query: @query}
         json = JSON.parse(response.body)
         data = json['errors']
-        expect(data[0]['message']).to eq("Argument 'characterId' on InputObject 'CreateWeaponInput' has an invalid value (\"\"). Expected type 'Int!'.")
+        expect(data[0]['message']).to eq("Argument 'characterId' on InputObject 'CreateCriticalInjuryInput' has an invalid value (\"\"). Expected type 'Int!'.")
         expect(CriticalInjury.count).to eq(0)
       end
     end
