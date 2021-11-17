@@ -79,10 +79,9 @@ RSpec.describe 'CreateWeapon', type: :request do
 
         post '/graphql', params: { query: @query}
         json = JSON.parse(response.body)
-        require 'pry'; binding.pry
         data = json['errors']
         expect(data[0]['message']).to eq("Argument 'characterId' on InputObject 'CreateWeaponInput' has an invalid value (\"\"). Expected type 'Int!'.")
-        expect(Skill.count).to eq(0)
+        expect(Weapon.count).to eq(0)
       end
     end
   end
