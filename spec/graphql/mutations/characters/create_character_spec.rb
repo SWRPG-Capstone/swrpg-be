@@ -35,6 +35,7 @@ RSpec.describe 'CreateCharacter', type: :request do
                               }
                             }
                 GQL
+        Character.destroy_all
       end
 
       it 'creates character' do
@@ -63,6 +64,7 @@ RSpec.describe 'CreateCharacter', type: :request do
     describe 'sad path' do
       before :each do
         @user = User.create(username: "test")
+        Character.destroy_all
       end
 
       it 'if no name included, returns error' do
