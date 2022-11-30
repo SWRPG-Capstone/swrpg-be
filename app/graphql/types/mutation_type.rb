@@ -4,5 +4,7 @@ module Types
     field :create_character, mutation: Mutations::Characters::CreateCharacter
     field :create_skill, mutation: Mutations::Skills::CreateSkill
     field :update_skill, mutation: Mutations::Skills::UpdateSkill
+    field :create_weapon, mutation: Mutations::Weapons::CreateWeapon
+    field :create_critical_injury, mutation: Mutations::CriticalInjuries::CreateCriticalInjury
   end
 end

@@ -24,7 +24,7 @@ RSpec.describe Types::MotivationType, type: :request do
         
         expect(motivation).to have_key(:moType)
 
-        expect(motivation[:moType]).to eq(vader.movtivations[0].mo_type)
+        expect(motivation[:moType]).to eq(vader.motivations[0].mo_type)
       end
     end
   end

@@ -102,6 +102,6 @@ module Types
 
     def weapon(characterId:)
       Weapon.find_by(character_id: characterId)
-    end    
+    end
   end
 end
