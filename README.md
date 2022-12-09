@@ -95,7 +95,7 @@ finds specific character in database by id.
 #### Request
 ```graphql 
 query{
-  character(characterId: 1) {
+  character(id: 1) {
     age 
     build
     career
