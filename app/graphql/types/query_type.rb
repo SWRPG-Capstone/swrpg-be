@@ -67,7 +67,7 @@ module Types
     def equipment_log(characterId:)
       EquipmentLog.find_by(character_id: characterId)
     end
-    
+
     # Find critical injuries for a character
     field :critical_injury, Types::CriticalInjuryType, null: false do
       argument :characterId, Integer, required: true
@@ -102,6 +102,6 @@ module Types
 
     def weapon(characterId:)
       Weapon.find_by(character_id: characterId)
-    end    
+    end
   end
 end
