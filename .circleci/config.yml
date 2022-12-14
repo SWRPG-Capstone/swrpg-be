@@ -48,3 +48,4 @@ jobs:
           environment:
               DATABASE_URL: "postgres://circleci@localhost:5432/swrpg-be_test"
       - run: bundle exec rspec spec
+      - run: rspec
