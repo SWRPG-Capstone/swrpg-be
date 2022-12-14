@@ -5,6 +5,7 @@ module Types
     field :create_skill, mutation: Mutations::Skills::CreateSkill
     field :create_user, mutation: Mutations::Users::CreateUser
     field :create_weapon, mutation: Mutations::Weapons::CreateWeapon
+    field :login_user, mutation: Mutations::Users::LoginUser
     field :update_skill, mutation: Mutations::Skills::UpdateSkill
   end
 end
