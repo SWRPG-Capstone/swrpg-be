@@ -29,11 +29,13 @@ critical_injury_1 = character_1.critical_injuries.find_or_create_by!(severity: 1
                                                                        result: 'Tis but a scratch')
 
 # Equipment Logs
-equipment_log_1 = character_1.equipment_logs.find_or_create_by!(credits: '33',
+if !character_1.equipment_log
+    equipment_log_1 = character_1.create_equipment_log.find_or_create_by!(credits: '33',
                                                                  weapons: 'Silenced Pistol',
                                                                  armor: 'Plot Armor',
                                                                  personal_gear: 'Peeeaaaaanuts'
                                                                  )
+end
 
 # Motivations
 motivation_1 = character_1.motivations.find_or_create_by!(mo_type: 'World peace!')
