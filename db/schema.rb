@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_11_151104) do
+ActiveRecord::Schema.define(version: 2022_12_14_005727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2022_12_11_151104) do
   create_table "equipment_logs", force: :cascade do |t|
     t.bigint "character_id"
     t.string "credits"
-    t.string "weapons"
     t.string "armor"
     t.string "personal_gear"
     t.datetime "created_at", null: false
@@ -150,6 +149,14 @@ ActiveRecord::Schema.define(version: 2022_12_11_151104) do
     t.index ["character_id"], name: "index_weapons_on_character_id"
   end
 
+  create_table "weapons_in_equipment_logs", force: :cascade do |t|
+    t.bigint "weapon_id"
+    t.bigint "equipment_log_id"
+    t.index ["equipment_log_id"], name: "index_weapons_in_equipment_logs_on_equipment_log_id"
+    t.index ["weapon_id", "equipment_log_id"], name: "weapons_in_equip_log", unique: true
+    t.index ["weapon_id"], name: "index_weapons_in_equipment_logs_on_weapon_id"
+  end
+
   add_foreign_key "characteristics", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "critical_injuries", "characters"
@@ -159,4 +166,6 @@ ActiveRecord::Schema.define(version: 2022_12_11_151104) do
   add_foreign_key "skills", "characters"
   add_foreign_key "talents", "characters"
   add_foreign_key "weapons", "characters"
+  add_foreign_key "weapons_in_equipment_logs", "equipment_logs"
+  add_foreign_key "weapons_in_equipment_logs", "weapons"
 end

@@ -14,10 +14,6 @@ module Types
     end
 
     # Find a list of characters for a single user
-    field :user, Types::UserType, null: false do
-      argument :id, ID, required: true
-    end
-
     def user_characters(id:)
       user = User.find(id)
       [user.characters]
