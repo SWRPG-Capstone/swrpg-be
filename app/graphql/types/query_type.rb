@@ -14,11 +14,6 @@ module Types
     end
 
     # Find a list of characters for a single user
-    # Do we need both of these `:user` field declerations or can we consolidate them to one and just use def on both of them?
-    field :user, Types::UserType, null: false do
-      argument :id, ID, required: true
-    end
-
     def user_characters(id:)
       user = User.find(id)
       [user.characters]
