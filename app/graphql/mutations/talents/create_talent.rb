@@ -9,7 +9,9 @@ module Mutations
       type Types::TalentType
 
       def resolve(character_id:, **attributes)
-        Character.find(character_id).talents.create!(attributes)
+        talent = Character.find(character_id).talents.create!(attributes)
+
+        talent.save ? talent : { talent: nil, errors: [talent.errors.full_messages] }
       end
     end
   end
