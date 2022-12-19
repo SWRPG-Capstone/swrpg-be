@@ -4,7 +4,7 @@ RSpec.describe Types::CharacterType, type: :request do
   describe 'display character' do
     describe 'happy path' do
       it 'can return a single character by the id' do
-        user = User.create(username: "test")
+        user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
         mace = user.characters.create(name: "Mace Windu", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
         vader = user.characters.create(name: "Darth Vader", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
         query = <<~GQL
@@ -58,7 +58,7 @@ RSpec.describe Types::CharacterType, type: :request do
 
       describe 'sad path' do
         it 'if no character id provided, returns error' do
-          user = User.create(username: "test")
+          user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
           mace = user.characters.create(name: "Mace Windu", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
           query = <<~GQL
                     query {

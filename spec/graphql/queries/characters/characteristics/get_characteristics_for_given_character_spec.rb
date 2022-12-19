@@ -4,7 +4,7 @@ RSpec.describe Types::CharacteristicType, type: :request do
   describe 'display characteristics' do
     describe 'happy path' do
       it 'returns a characters characteristics' do
-        user = User.create(username: "test")
+        user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
         mace = user.characters.create(name: "Mace Windu", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
         vader = user.characters.create(name: "Darth Vader", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
         mace_characteristics = mace.characteristics.create(agility: 1, brawn: 2, char_presence: 3, cunning: 4, intellect: 5, willpower: 1)
@@ -57,7 +57,7 @@ RSpec.describe Types::CharacteristicType, type: :request do
 
       describe 'sad path' do
         it 'if no character id provided, returns error' do
-          user = User.create(username: "test")
+          user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
           vader = user.characters.create(name: "Darth Vader", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
           vader_characteristics = vader.characteristics.create(agility: 5, brawn: 4, char_presence: 3, cunning: 2, intellect: 1, willpower: 5)
 
