@@ -8,6 +8,7 @@ module Types
     field :create_talent, mutation: Mutations::Talents::CreateTalent
     field :create_user, mutation: Mutations::Users::CreateUser
     field :create_weapon, mutation: Mutations::Weapons::CreateWeapon
+    field :login_user, mutation: Mutations::Users::LoginUser
 
     # Update
     field :update_skill, mutation: Mutations::Skills::UpdateSkill
