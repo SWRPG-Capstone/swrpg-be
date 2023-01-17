@@ -4,7 +4,7 @@ RSpec.describe 'CreateWeapon', type: :request do
   describe '#resolve' do
     describe 'happy path' do
       before :each do
-        @user = User.create(username: 'Roald', password: 'Test_1234!', password_confirmation: 'Test_1234!')
+        @user = User.create(username: 'Roald')
         @character = @user.characters.create(
           name: 'Lou',
           species: 'Polar Bear',
@@ -66,7 +66,7 @@ RSpec.describe 'CreateWeapon', type: :request do
 
     describe 'sad path' do
       before :each do
-        @user = User.create(username: 'Roald', password: 'Test_1234!', password_confirmation: 'Test_1234!')
+        @user = User.create(username: 'Roald')
         @character = @user.characters.create(name: 'Lou', species: 'Polar Bear', specialization: 'Ice Hockey', career: 'Coke Spokesperson', age: 44, height: '7ft, 3in', build: 'RIIIIIPPPPPED', hair: 'More like fur', eyes: 'hazel')
       end
 

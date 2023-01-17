@@ -5,7 +5,7 @@ RSpec.describe 'CreateCharacter', type: :request do
 
     describe 'happy path' do
       before :each do
-        @user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
+        @user = User.create(username: "test")
         @query = <<~GQL
                       mutation {
                         createCharacter(
@@ -62,7 +62,7 @@ RSpec.describe 'CreateCharacter', type: :request do
 
     describe 'sad path' do
       before :each do
-        @user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
+        @user = User.create(username: "test")
       end
 
       it 'if no name included, returns error' do

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Users Characters', type: :request do
   describe 'happy path' do
     it 'return all characters for a single user' do
-      user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
+      user = User.create(username: "Heath Ledger")
       mace = user.characters.create(name: "Mace Windu", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
       vader = user.characters.create(name: "Darth Vader", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
       query = <<~GQL
@@ -48,7 +48,7 @@ RSpec.describe 'Users Characters', type: :request do
 
   describe 'sad path' do
     it 'if no user id provided, returns error' do
-      user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
+      user = User.create(username: "Heath Ledger")
       mace = user.characters.create(name: "Mace Windu", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
       vader = user.characters.create(name: "Darth Vader", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
       query = <<~GQL
