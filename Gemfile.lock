@@ -114,6 +114,10 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86-mingw32)
       racc (~> 1.4)
+    nokogiri (1.14.2-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.14.2-x86_64-linux)
+      racc (~> 1.4)
     pg (1.4.6)
     pg (1.4.6-x64-mingw32)
     pg (1.4.6-x86-mingw32)
@@ -226,6 +230,8 @@ PLATFORMS
   x64-mingw32
   x86-mingw32
   x86-mswin32
+  x86_64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt
