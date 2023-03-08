@@ -30,7 +30,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'graphiql-rails'
 gem 'graphql'
 gem 'pry'
-gem 'pry'
 gem 'pry-remote'
 gem 'pry-nav'
 gem 'rack-cors'
