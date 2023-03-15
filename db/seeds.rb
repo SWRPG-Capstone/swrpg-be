@@ -28,13 +28,22 @@ characteristics_1 = character_1.characteristics.find_or_create_by!(brawn: 1,
 critical_injury_1 = character_1.critical_injuries.find_or_create_by!(severity: 1,
                                                                        result: 'Tis but a scratch')
 
-# Equipment Logs
-if !character_1.equipment_log
-    equipment_log_1 = character_1.create_equipment_log.find_or_create_by!(credits: '33',
-                                                                 weapons: 'Silenced Pistol',
-                                                                 armor: 'Plot Armor',
-                                                                 personal_gear: 'Peeeaaaaanuts'
-                                                                 )
+# Weapons
+weapon_1 = character_1.weapons.find_or_create_by!(skill: 'Ranged Light',
+                                                  special: 'Piercing Shot',
+                                                  damage: 5,
+                                                  range: 2,
+                                                  critical: 1)
+
+
+                                                  # Equipment Logs
+unless character_1.equipment_log
+    equipment_log_1 = EquipmentLog.find_or_create_by!(character: character_1,
+                                                      credits: '33',
+                                                      weapons: [ weapon_1 ],
+                                                      armor: 'Plot Armor',
+                                                      personal_gear: 'Peeeaaaaanuts'
+                                                      )
 end
 
 # Motivations
@@ -83,9 +92,3 @@ talent_1 = character_1.talents.find_or_create_by(name: 'Mind Reading',
                                                  page_number: 55,
                                                  ability_summary: 'Waku waku I can read your MIND!')
 
-# Weapons
-weapon_1 = character_1.weapons.find_or_create_by!(skill: 'Ranged Light',
-                                                  special: 'Piercing Shot',
-                                                  damage: 5,
-                                                  range: 2,
-                                                  critical: 1)
