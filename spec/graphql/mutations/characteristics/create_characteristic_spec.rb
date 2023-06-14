@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Create Characteristic', type: :request do
   before :each do
-    @user = User.create(username: Faker::Name.name, password: 'Test_1234!', password_confirmation: 'Test_1234!')
+    @user = User.create(username: Faker::Name.name)
     @character = @user.characters.create(name: Faker::Name.name, species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
     @query =
     <<~GQL

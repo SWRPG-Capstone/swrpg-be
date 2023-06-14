@@ -4,7 +4,7 @@ RSpec.describe Types::SkillType, type: :request do
   describe 'display skills' do
     describe 'happy path' do
       it 'returns skills for a given character' do
-        user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
+        user = User.create(username: "test")
         mace = user.characters.create(name: "Mace Windu", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
         vader = user.characters.create(name: "Darth Vader", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
         mace_skills = mace.skills.create(astrogation: 1, athletics: 1, brawl: 1, charm: 1, coercion: 1, computers: 1, cool: 1, coordination: 1, core_worlds: 1, deception: 1, discipline: 1, education: 1, gunnery: 1, leadership: 1, lore: 1, mechanics: 1, medicine: 1, melee: 1, negotiation: 1, outer_rim: 1, perception: 1, piloting: 1, piloting_space: 1, ranged_heavy: 1, ranged_light: 1, resilience: 1, skulduggery: 1, stealth: 1, street_wise: 1, survival: 1, underworld: 1, vigilance: 1, xenology: 1)
@@ -94,7 +94,7 @@ RSpec.describe Types::SkillType, type: :request do
 
       describe 'sad path' do
         it 'if no character id provided, returns error' do
-          user = User.create(username: "test", password: 'Test_1234!', password_confirmation: 'Test_1234!')
+          user = User.create(username: "test")
           mace = user.characters.create(name: "Mace Windu", species: Faker::Name.name, specialization: Faker::Name.name, career: Faker::Name.name, age: Faker::Number.number(digits: 2), height: Faker::Name.name, build: Faker::Name.name, hair: Faker::Name.name, eyes: Faker::Name.name)
           mace_skills = mace.skills.create(astrogation: 2, athletics: 2, brawl: 2, charm: 2, coercion: 2, computers: 2, cool: 2, coordination: 2, core_worlds: 2, deception: 2, discipline: 2, education: 2, gunnery: 2, leadership: 2, lore: 2, mechanics: 2, medicine: 2, melee: 2, negotiation: 2, outer_rim: 2, perception: 2, piloting: 2, piloting_space: 2, ranged_heavy: 2, ranged_light: 2, resilience: 2, skulduggery: 2, stealth: 2, street_wise: 2, survival: 2, underworld: 2, vigilance: 2, xenology: 2)
           query = <<~GQL

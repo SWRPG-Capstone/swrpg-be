@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Update Skill', type: :request do
   describe 'resolve' do
     before :each do
-      @user = User.create(username: Faker::Name.name, password: 'Test_1234!', password_confirmation: 'Test_1234!')
+      @user = User.create(username: Faker::Name.name)
       @character = @user.characters.create(
         name: Faker::Name.name,
         species: Faker::Name.name,
